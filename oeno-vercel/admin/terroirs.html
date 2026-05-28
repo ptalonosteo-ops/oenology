@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="fr">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Terroirs</title><script src="_shared.js"></script></head>
+<body>
+<script>document.write(`<style>${CSS}</style>`);document.write(nav());</script>
+<main>
+  <h1>🗺️ Terroirs</h1>
+  <p class="sub">Gérez les fiches terroir et les données climatiques</p>
+  <div class="card">
+    <div class="card-hd">
+      <h2>Liste des terroirs</h2>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <input type="text" class="search-bar" id="search" placeholder="Rechercher…" oninput="renderTable()">
+        <select id="filter-pays" onchange="renderTable()" style="width:130px">
+          <option value="">Tous les pays</option>
+          <option value="fr">🇫🇷 France</option>
+          <option value="monde">🌍 Monde</option>
+        </select>
+        <button class="btn btn-primary" onclick="openNew()">+ Nouveau terroir</button>
+      </div>
+    </div>
+    <div id="table-wrap"></div>
+  </div>
+</main>
+
+<div class="modal-bg" id="modal">
+  <div class="modal" style="max-width:860px">
+    <div class="modal-hd">
+      <h2 id="modal-title">Nouveau terroir</h2>
+      <button class="close-btn" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+let terroirs=[], cepages=[], editing=null;
+const MOIS=['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];
+
+async function load() {
+  [terroirs, cepages] = await Promise.all([
+    API.get('/admin/api/terroirs'),
+    API.get('/admin/api/cepages'),
+  ]);
+  renderTable();
+}
+
+function renderTable() {
+  const q  = document.getElementById('search').value.toLowerCase();
+  const fp = document.getElementById('filter-pays').value;
+  const rows = terroirs.filter(t =>
+    (!fp || t.pays===fp) &&
+    (t.name.toLowerCase().includes(q) || (t.region||'').toLowerCase().includes(q)));
+  if (!rows.length) {
+    document.getElementById('table-wrap').innerHTML = '<div class="empty">Aucun terroir trouvé</div>';
+    return;
+  }
+  const cepMap = Object.fromEntries(cepages.map(c=>[c.id,c.name]));
+  document.getElementById('table-wrap').innerHTML = `
+    <table>
+      <thead><tr>
+        <th>Pays</th><th>Nom</th><th>Région</th><th>Cépage</th>
+        <th>Sol</th><th style="text-align:right">Actions</th>
+      </tr></thead>
+      <tbody>${rows.map(t=>`
+        <tr>
+          <td><span class="badge badge-${t.pays}">${t.pays==='fr'?'🇫🇷 France':'🌍 Monde'}</span></td>
+          <td style="font-weight:600">${escHtml(t.name)}</td>
+          <td style="font-size:12px;color:#6b6458">${escHtml(t.region||'-')}</td>
+          <td>${t.cepage_id?`<span style="font-size:12px;background:#f5f0ea;padding:2px 7px;border-radius:4px">${escHtml(cepMap[t.cepage_id]||t.cepage_id)}</span>`:'-'}</td>
+          <td style="font-size:12px;color:#6b6458;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">${escHtml((t.sol||'').slice(0,60))}</td>
+          <td style="text-align:right">
+            <button class="btn btn-secondary btn-sm" onclick="openEdit('${t.id}')">✏️ Modifier</button>
+            <button class="btn btn-danger btn-sm" style="margin-left:4px" onclick="del('${t.id}','${escHtml(t.name)}')">🗑</button>
+          </td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+
+function terroir_form(t={}) {
+  const temps = t.temperatures||new Array(12).fill(0);
+  const precs = t.precipitations||new Array(12).fill(0);
+  return `
+  <div class="tabs" id="main-tabs" style="margin-bottom:0">
+    <button class="tab active" onclick="showTab('infos',this)">ℹ️ Informations</button>
+    <button class="tab" onclick="showTab('clim',this)">🌡️ Climat</button>
+    <button class="tab" onclick="showTab('fiches',this)">📄 Fiches</button>
+    <button class="tab" onclick="showTab('appels',this)">📜 Appellations</button>
+  </div>
+
+  <div id="tab-infos">
+    <div class="form-row" style="margin-top:14px">
+      <div><label>Identifiant (slug)</label>
+        <input type="text" id="f-id" value="${escHtml(t.id||'')}" ${t.id?'readonly style="background:#f5f0ea"':''}></div>
+      <div><label>Nom du terroir</label>
+        <input type="text" id="f-name" value="${escHtml(t.name||'')}"></div>
+    </div>
+    <div class="form-row">
+      <div><label>Région</label><input type="text" id="f-region" value="${escHtml(t.region||'')}"></div>
+      <div><label>Pays</label>
+        <select id="f-pays">
+          <option value="fr" ${(t.pays||'fr')==='fr'?'selected':''}>🇫🇷 France</option>
+          <option value="monde" ${t.pays==='monde'?'selected':''}>🌍 Monde</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div><label>Cépage principal</label>
+        <select id="f-cepage">
+          <option value="">— Aucun —</option>
+          ${cepages.map(c=>`<option value="${c.id}" ${t.cepage_id===c.id?'selected':''}>${escHtml(c.name)}</option>`).join('')}
+        </select>
+      </div>
+      <div><label>Superficie</label><input type="text" id="f-superficie" value="${escHtml(t.superficie||'')}" placeholder="ex: 850 ha"></div>
+    </div>
+    <div class="form-row">
+      <div><label>Altitude</label><input type="text" id="f-altitude" value="${escHtml(t.altitude||'')}" placeholder="ex: 250-400 m"></div>
+      <div><label>Orientation</label><input type="text" id="f-orientation" value="${escHtml(t.orientation||'')}"></div>
+    </div>
+    <div class="form-row">
+      <div><label>Ensoleillement</label><input type="text" id="f-ens" value="${escHtml(t.ensoleillement||'')}" placeholder="ex: 1 800 h/an"></div>
+      <div><label>Risque gel</label><input type="text" id="f-gel" value="${escHtml(t.gel||'')}"></div>
+    </div>
+    <label>Sol principal</label>
+    <input type="text" id="f-sol" value="${escHtml(t.sol||'')}">
+    <label>Type climatique</label>
+    <input type="text" id="f-clim" value="${escHtml(t.clim||'')}" placeholder="ex: Maritime tempéré">
+    <label>Point clé pédagogique</label>
+    <textarea id="f-key">${escHtml(t.key_point||'')}</textarea>
+  </div>
+
+  <div id="tab-clim" style="display:none;margin-top:14px">
+    <p style="font-size:13px;color:#6b6458;margin-bottom:14px">Données climatiques mensuelles (janvier → décembre)</p>
+    <label>Températures moyennes (°C)</label>
+    <div class="months-grid" style="margin-bottom:4px">${MOIS.map(m=>`<div class="month-label">${m}</div>`).join('')}</div>
+    <div class="months-grid">${temps.map((v,i)=>`<input type="number" id="t-${i}" value="${v}" step="0.1">`).join('')}</div>
+    <label style="margin-top:16px">Précipitations (mm)</label>
+    <div class="months-grid" style="margin-bottom:4px">${MOIS.map(m=>`<div class="month-label">${m}</div>`).join('')}</div>
+    <div class="months-grid">${precs.map((v,i)=>`<input type="number" id="p-${i}" value="${v}">`).join('')}</div>
+  </div>
+
+  <div id="tab-fiches" style="display:none;margin-top:14px">
+    <label>Fiche géographique / topographique</label>
+    <textarea id="f-geo" class="tall">${escHtml(t.geo_text||'')}</textarea>
+    <label>Histoire & culture</label>
+    <textarea id="f-hist" class="tall">${escHtml(t.hist_text||'')}</textarea>
+  </div>
+
+  <div id="tab-appels" style="display:none;margin-top:14px">
+    <p style="font-size:13px;color:#6b6458;margin-bottom:14px">Appellations (une par ligne, format : Nom | Type | Description)</p>
+    <textarea id="f-appels" class="tall" style="min-height:200px;font-family:monospace;font-size:13px">${((t.appellations||[]).map(a=>`${a.n||''} | ${a.t||''} | ${a.d||''}`)).join('\n')}</textarea>
+    <div class="tip">Exemple : Gevrey-Chambertin 1er Cru | AOC | 26 lieux-dits classés Premier Cru</div>
+  </div>
+
+  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px">
+    <button class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+    <button class="btn btn-primary" onclick="save()">💾 Enregistrer</button>
+  </div>`;
+}
+
+function showTab(id, btn) {
+  ['infos','clim','fiches','appels'].forEach(t=>{
+    document.getElementById('tab-'+t).style.display = t===id?'block':'none';
+  });
+  document.querySelectorAll('#main-tabs .tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function openNew() {
+  editing = null;
+  document.getElementById('modal-title').textContent = 'Nouveau terroir';
+  document.getElementById('modal-body').innerHTML = terroir_form();
+  document.getElementById('modal').classList.add('open');
+}
+
+function openEdit(id) {
+  editing = id;
+  const t = terroirs.find(x=>x.id===id);
+  document.getElementById('modal-title').textContent = 'Modifier — ' + t.name;
+  document.getElementById('modal-body').innerHTML = terroir_form(t);
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click',e=>{ if(e.target===document.getElementById('modal')) closeModal(); });
+
+async function save() {
+  const appels_raw = (document.getElementById('f-appels').value||'').split('\n').filter(Boolean);
+  const appellations = appels_raw.map(line=>{
+    const [n,t,d] = line.split('|').map(s=>s.trim());
+    return {n:n||'',t:t||'',d:d||''};
+  });
+  const data = {
+    id: document.getElementById('f-id').value.trim(),
+    name: document.getElementById('f-name').value.trim(),
+    region: document.getElementById('f-region').value.trim(),
+    cepage_id: document.getElementById('f-cepage').value||null,
+    pays: document.getElementById('f-pays').value,
+    superficie: document.getElementById('f-superficie').value.trim(),
+    altitude: document.getElementById('f-altitude').value.trim(),
+    orientation: document.getElementById('f-orientation').value.trim(),
+    ensoleillement: document.getElementById('f-ens').value.trim(),
+    gel: document.getElementById('f-gel').value.trim(),
+    sol: document.getElementById('f-sol').value.trim(),
+    clim: document.getElementById('f-clim').value.trim(),
+    key_point: document.getElementById('f-key').value.trim(),
+    temperatures: Array.from({length:12},(_,i)=>parseFloat(document.getElementById('t-'+i).value)||0),
+    precipitations: Array.from({length:12},(_,i)=>parseFloat(document.getElementById('p-'+i).value)||0),
+    geo_text: document.getElementById('f-geo').value.trim(),
+    hist_text: document.getElementById('f-hist').value.trim(),
+    appellations,
+    coupe: {},
+    map_pos: [0,0],
+  };
+  if (!data.id||!data.name) { toast('Identifiant et nom requis','error'); return; }
+  try {
+    if (editing) await API.put('/admin/api/terroirs/'+editing, data);
+    else         await API.post('/admin/api/terroirs', data);
+    toast(editing?'Terroir modifié ✓':'Terroir ajouté ✓');
+    closeModal(); await load();
+  } catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+async function del(id,name) {
+  if (!confirm(`Supprimer « ${name} » ?`)) return;
+  try { await API.del('/admin/api/terroirs/'+id); toast('Supprimé'); await load(); }
+  catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+load();
+</script>
+</body></html>

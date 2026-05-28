@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="fr">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Tableau de bord</title>
+<script src="_shared.js"></script></head>
+<body>
+<script>
+document.write(`<style>${CSS}</style>`);
+document.write(nav());
+</script>
+<main>
+  <h1>🍷 Tableau de bord</h1>
+  <p class="sub">Gérez le contenu de l'application œnologie</p>
+
+  <div class="stats-grid" id="stats">
+    <div class="stat"><div class="stat-n">…</div><div class="stat-l">Cépages</div></div>
+    <div class="stat"><div class="stat-n">…</div><div class="stat-l">Sols géologiques</div></div>
+    <div class="stat"><div class="stat-n">…</div><div class="stat-l">Terroirs</div></div>
+    <div class="stat"><div class="stat-n">…</div><div class="stat-l">Exercices</div></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+
+    <div class="card">
+      <div class="card-hd"><h2>Accès rapides</h2></div>
+      <div class="card-body" style="display:flex;flex-direction:column;gap:10px">
+        <a href="/admin/cepages.html"  class="btn btn-secondary" style="justify-content:flex-start;font-size:14px">🍇 Gérer les cépages</a>
+        <a href="/admin/geologie.html" class="btn btn-secondary" style="justify-content:flex-start;font-size:14px">🪨 Fiches géologiques</a>
+        <a href="/admin/terroirs.html" class="btn btn-secondary" style="justify-content:flex-start;font-size:14px">🗺️ Terroirs</a>
+        <a href="/admin/exercices.html"class="btn btn-secondary" style="justify-content:flex-start;font-size:14px">📝 Exercices</a>
+        <hr style="border:none;border-top:1px solid #e5e0d5">
+        <a href="/" target="_blank" class="btn btn-secondary" style="justify-content:flex-start;font-size:14px">👁️ Voir l'application publique</a>
+        <button onclick="exportData()" class="btn btn-secondary" style="font-size:14px">⬇️ Exporter toutes les données</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><h2>Guide rapide</h2></div>
+      <div class="card-body" style="font-size:13.5px;line-height:1.8;color:#4a4035">
+        <p><strong>Cépages</strong> — Ajouter, modifier ou supprimer les fiches des cépages (nom, famille, arômes, description…)</p>
+        <br>
+        <p><strong>Géologie</strong> — Éditer les sols et les 6 niveaux de contenu pédagogique par terroir géologique (géographie, géologie détaillée, appellations, évolution, dégustation, histoire)</p>
+        <br>
+        <p><strong>Terroirs</strong> — Gérer les terroirs sur les cartes (données climatiques, coupes topographiques, fiches)</p>
+        <br>
+        <p><strong>Exercices</strong> — Créer ou modifier les exercices pédagogiques</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+(async () => {
+  try {
+    const s = await API.get('/admin/api/stats');
+    const g = document.getElementById('stats');
+    g.innerHTML = `
+      <div class="stat"><div class="stat-n">${s.cepages}</div><div class="stat-l">Cépages</div></div>
+      <div class="stat"><div class="stat-n">${s.soils}</div><div class="stat-l">Sols géologiques</div></div>
+      <div class="stat"><div class="stat-n">${s.terroirs}</div><div class="stat-l">Terroirs</div></div>
+      <div class="stat"><div class="stat-n">${s.exos}</div><div class="stat-l">Exercices</div></div>
+    `;
+  } catch(e) { console.error(e); }
+})();
+
+async function exportData() {
+  location.href = '/admin/api/export';
+}
+</script>
+</body></html>

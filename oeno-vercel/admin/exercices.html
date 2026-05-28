@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="fr">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Exercices</title><script src="_shared.js"></script></head>
+<body>
+<script>document.write(`<style>${CSS}</style>`);document.write(nav());</script>
+<main>
+  <h1>📝 Exercices pédagogiques</h1>
+  <p class="sub">Créez et gérez les exercices de dégustation</p>
+  <div class="card">
+    <div class="card-hd">
+      <h2>Liste des exercices</h2>
+      <button class="btn btn-primary" onclick="openNew()">+ Nouvel exercice</button>
+    </div>
+    <div id="table-wrap"></div>
+  </div>
+</main>
+
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="modal-hd">
+      <h2 id="modal-title">Nouvel exercice</h2>
+      <button class="close-btn" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+let exos=[], cepages=[], editing=null;
+
+const TYPES   = ['degustation','geologie','terroir','histoire','libre'];
+const NIVEAUX = ['debutant','intermediaire','avance','expert'];
+
+async function load() {
+  [exos, cepages] = await Promise.all([
+    API.get('/admin/api/exos'),
+    API.get('/admin/api/cepages'),
+  ]);
+  renderTable();
+}
+
+const NIVEAU_COLOR = {debutant:'#e8f4f0;color:#1a6b4a',intermediaire:'#eff6ff;color:#1e40af',avance:'#fff3e0;color:#b45309',expert:'#fee;color:#8b1a1a'};
+const STATUT_COLOR = {actif:'#e8f4f0;color:#1a6b4a',brouillon:'#f5f0ea;color:#6b6458',archive:'#fee;color:#8b1a1a'};
+
+function renderTable() {
+  if (!exos.length) {
+    document.getElementById('table-wrap').innerHTML = '<div class="empty">Aucun exercice</div>';
+    return;
+  }
+  const cepMap = Object.fromEntries(cepages.map(c=>[c.id,c.name]));
+  document.getElementById('table-wrap').innerHTML = `
+    <table>
+      <thead><tr>
+        <th>Titre</th><th>Type</th><th>Niveau</th><th>Cépages</th><th>Statut</th><th>IA</th>
+        <th style="text-align:right">Actions</th>
+      </tr></thead>
+      <tbody>${exos.map(e=>`
+        <tr>
+          <td style="font-weight:600">${escHtml(e.titre||'-')}</td>
+          <td style="font-size:12px;color:#6b6458">${escHtml(e.type||'-')}</td>
+          <td><span class="badge" style="background:${NIVEAU_COLOR[e.niveau]||'#f5f0ea;color:#6b6458'}">${e.niveau||'-'}</span></td>
+          <td style="font-size:12px">${(e.cepages||[]).map(c=>`<span style="background:#f5f0ea;padding:1px 6px;border-radius:3px;margin-right:3px">${escHtml(cepMap[c]||c)}</span>`).join('')}</td>
+          <td><span class="badge" style="background:${STATUT_COLOR[e.statut]||'#f5f0ea;color:#6b6458'}">${e.statut||'-'}</span></td>
+          <td style="text-align:center">${e.ai?'🤖':'-'}</td>
+          <td style="text-align:right">
+            <button class="btn btn-secondary btn-sm" onclick="openEdit('${e.id}')">✏️</button>
+            <button class="btn btn-danger btn-sm" style="margin-left:4px" onclick="del('${e.id}','${escHtml(e.titre)}')">🗑</button>
+          </td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+
+function form(e={}) {
+  const cepSel = (e.cepages||[]);
+  return `
+    <label>Identifiant (slug)</label>
+    <input type="text" id="f-id" value="${escHtml(e.id||'')}" ${e.id?'readonly style="background:#f5f0ea"':''}>
+    <label>Titre</label>
+    <input type="text" id="f-titre" value="${escHtml(e.titre||'')}">
+    <div class="form-row">
+      <div><label>Type</label>
+        <select id="f-type">
+          ${TYPES.map(t=>`<option value="${t}" ${e.type===t?'selected':''}>${t}</option>`).join('')}
+        </select>
+      </div>
+      <div><label>Niveau</label>
+        <select id="f-niveau">
+          ${NIVEAUX.map(n=>`<option value="${n}" ${e.niveau===n?'selected':''}>${n}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div><label>Statut</label>
+        <select id="f-statut">
+          <option value="actif"     ${(e.statut||'actif')==='actif'?'selected':''}>✅ Actif</option>
+          <option value="brouillon" ${e.statut==='brouillon'?'selected':''}>📝 Brouillon</option>
+          <option value="archive"   ${e.statut==='archive'?'selected':''}>📦 Archivé</option>
+        </select>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding-top:20px">
+        <input type="checkbox" id="f-ai" ${e.ai?'checked':''} style="width:18px;height:18px">
+        <label for="f-ai" style="margin:0;text-transform:none;font-weight:500;font-size:14px">Corrigé par IA</label>
+      </div>
+    </div>
+    <label>Cépages concernés</label>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;padding:10px;border:1.5px solid #e5e0d5;border-radius:7px" id="cep-check">
+      ${cepages.map(c=>`
+        <label style="display:flex;align-items:center;gap:6px;margin:0;text-transform:none;font-weight:500;font-size:13px;background:${cepSel.includes(c.id)?'#f5e8e8':'#f5f0ea'};padding:4px 10px;border-radius:20px;cursor:pointer">
+          <input type="checkbox" name="cep" value="${c.id}" ${cepSel.includes(c.id)?'checked':''} style="width:14px;height:14px">
+          ${escHtml(c.name)}
+        </label>`).join('')}
+    </div>
+    <label>Description / Consignes</label>
+    <textarea id="f-desc" class="tall">${escHtml(e.description||'')}</textarea>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px">
+      <button class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="save()">💾 Enregistrer</button>
+    </div>`;
+}
+
+function openNew() {
+  editing=null;
+  document.getElementById('modal-title').textContent='Nouvel exercice';
+  document.getElementById('modal-body').innerHTML=form();
+  document.getElementById('modal').classList.add('open');
+}
+
+function openEdit(id) {
+  editing=id;
+  const e=exos.find(x=>x.id===id);
+  document.getElementById('modal-title').textContent='Modifier — '+e.titre;
+  document.getElementById('modal-body').innerHTML=form(e);
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click',e=>{ if(e.target===document.getElementById('modal')) closeModal(); });
+
+async function save() {
+  const ceps = [...document.querySelectorAll('#cep-check input[name=cep]:checked')].map(c=>c.value);
+  const data = {
+    id:          document.getElementById('f-id').value.trim(),
+    titre:       document.getElementById('f-titre').value.trim(),
+    type:        document.getElementById('f-type').value,
+    niveau:      document.getElementById('f-niveau').value,
+    statut:      document.getElementById('f-statut').value,
+    ai:          document.getElementById('f-ai').checked,
+    cepages:     ceps,
+    description: document.getElementById('f-desc').value.trim(),
+  };
+  if (!data.id||!data.titre) { toast('Identifiant et titre requis','error'); return; }
+  try {
+    if (editing) await API.put('/admin/api/exos/'+editing, data);
+    else         await API.post('/admin/api/exos', data);
+    toast(editing?'Exercice modifié ✓':'Exercice ajouté ✓');
+    closeModal(); await load();
+  } catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+async function del(id,titre) {
+  if (!confirm(`Supprimer « ${titre} » ?`)) return;
+  try { await API.del('/admin/api/exos/'+id); toast('Supprimé'); await load(); }
+  catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+load();
+</script>
+</body></html>

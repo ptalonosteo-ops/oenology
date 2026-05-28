@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="fr">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Cépages</title><script src="_shared.js"></script></head>
+<body>
+<script>document.write(`<style>${CSS}</style>`);document.write(nav());</script>
+<main>
+  <h1>🍇 Cépages</h1>
+  <p class="sub">Gérez les fiches de chaque cépage</p>
+  <div class="card">
+    <div class="card-hd">
+      <h2>Liste des cépages</h2>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="text" class="search-bar" id="search" placeholder="Rechercher…" oninput="renderTable()">
+        <button class="btn btn-primary" onclick="openNew()">+ Nouveau cépage</button>
+      </div>
+    </div>
+    <div id="table-wrap"></div>
+  </div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="modal-hd">
+      <h2 id="modal-title">Nouveau cépage</h2>
+      <button class="close-btn" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+let cepages = [];
+let editing = null;
+
+const FAMILLES = ['Pinot','Cabernet','Syrah','Grenache','Sauvignon','Chenin','Traminer','Sémillon'];
+const COLORS   = ['#722f37','#c4a35a','#d4af37','#8b4513','#2e8b57','#4169e1','#800080','#8b7355'];
+
+async function load() {
+  cepages = await API.get('/admin/api/cepages');
+  renderTable();
+}
+
+function renderTable() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const rows = cepages.filter(c =>
+    c.name.toLowerCase().includes(q) || (c.famille||'').toLowerCase().includes(q));
+  if (!rows.length) {
+    document.getElementById('table-wrap').innerHTML = '<div class="empty">Aucun cépage trouvé</div>';
+    return;
+  }
+  document.getElementById('table-wrap').innerHTML = `
+    <table>
+      <thead><tr>
+        <th>Couleur</th><th>Identifiant</th><th>Nom</th><th>Famille</th>
+        <th>Arômes</th><th style="text-align:right">Actions</th>
+      </tr></thead>
+      <tbody>${rows.map(c=>`
+        <tr>
+          <td><div style="width:22px;height:22px;border-radius:50%;background:${escHtml(c.color||'#8b7355')};border:2px solid #fff;box-shadow:0 0 0 1px #e5e0d5"></div></td>
+          <td style="font-family:monospace;font-size:12px;color:#6b6458">${escHtml(c.id)}</td>
+          <td style="font-weight:600">${escHtml(c.name)}</td>
+          <td>${c.famille?`<span class="badge" style="background:#f5f0ea;color:#4a4035">${escHtml(c.famille)}</span>`:'-'}</td>
+          <td style="font-size:12px;color:#6b6458">${(c.aromes||[]).slice(0,3).join(', ')}${(c.aromes||[]).length>3?'…':''}</td>
+          <td style="text-align:right">
+            <button class="btn btn-secondary btn-sm" onclick="openEdit(${c.id?`'${c.id}'`:null})">✏️ Modifier</button>
+            <button class="btn btn-danger btn-sm" style="margin-left:4px" onclick="deleteCepage('${c.id}','${escHtml(c.name)}')">🗑</button>
+          </td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+
+function form(c={}) {
+  const aromes = (c.aromes||[]).join(', ');
+  const sols   = (c.sols||[]).join(', ');
+  return `
+    <div class="form-row">
+      <div>
+        <label>Identifiant (slug)</label>
+        <input type="text" id="f-id" value="${escHtml(c.id||'')}" placeholder="ex: pinot-noir" ${c.id?'readonly style="background:#f5f0ea"':''}>
+        <div class="tip">Lettres minuscules et tirets uniquement. Non modifiable après création.</div>
+      </div>
+      <div>
+        <label>Nom du cépage</label>
+        <input type="text" id="f-name" value="${escHtml(c.name||'')}">
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label>Famille génétique</label>
+        <select id="f-famille">
+          <option value="">— Aucune —</option>
+          ${FAMILLES.map(f=>`<option value="${f}" ${c.famille===f?'selected':''}>${f}</option>`).join('')}
+        </select>
+      </div>
+      <div>
+        <label>Couleur d'affichage</label>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:5px">
+          <input type="color" id="f-color" value="${c.color||'#8b7355'}" style="width:44px;height:38px;border:1.5px solid #e5e0d5;border-radius:7px;padding:2px;cursor:pointer">
+          <input type="text" id="f-color-hex" value="${c.color||'#8b7355'}" style="flex:1" oninput="document.getElementById('f-color').value=this.value">
+        </div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px">
+          ${COLORS.map(col=>`<div onclick="setColor('${col}')" style="width:20px;height:20px;border-radius:50%;background:${col};cursor:pointer;border:2px solid #fff;box-shadow:0 0 0 1px #e5e0d5"></div>`).join('')}
+        </div>
+      </div>
+    </div>
+    <label>Origine géographique</label>
+    <input type="text" id="f-origine" value="${escHtml(c.origine||'')}" placeholder="ex: Bourgogne, France">
+    <label>Description</label>
+    <textarea id="f-description" class="tall">${escHtml(c.description||'')}</textarea>
+    <label>Arômes principaux <span class="tip" style="text-transform:none">(séparés par des virgules)</span></label>
+    <input type="text" id="f-aromes" value="${escHtml(aromes)}" placeholder="Cerise, Framboise, Sous-bois…">
+    <label>Types de sols associés <span class="tip" style="text-transform:none">(séparés par des virgules)</span></label>
+    <input type="text" id="f-sols" value="${escHtml(sols)}" placeholder="Calcaire, Argile bleue…">
+    <label>Notes internes</label>
+    <textarea id="f-notes">${escHtml(c.notes||'')}</textarea>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px">
+      <button class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="save()">💾 Enregistrer</button>
+    </div>`;
+}
+
+function setColor(col) {
+  document.getElementById('f-color').value = col;
+  document.getElementById('f-color-hex').value = col;
+}
+
+function openNew() {
+  editing = null;
+  document.getElementById('modal-title').textContent = 'Nouveau cépage';
+  document.getElementById('modal-body').innerHTML = form();
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('f-id').focus();
+}
+
+function openEdit(id) {
+  editing = id;
+  const c = cepages.find(x=>x.id===id);
+  document.getElementById('modal-title').textContent = 'Modifier — ' + c.name;
+  document.getElementById('modal-body').innerHTML = form(c);
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click', e => { if(e.target===document.getElementById('modal')) closeModal(); });
+
+async function save() {
+  const data = {
+    id:          document.getElementById('f-id').value.trim(),
+    name:        document.getElementById('f-name').value.trim(),
+    famille:     document.getElementById('f-famille').value,
+    origine:     document.getElementById('f-origine').value.trim(),
+    description: document.getElementById('f-description').value.trim(),
+    color:       document.getElementById('f-color').value,
+    aromes:      document.getElementById('f-aromes').value.split(',').map(s=>s.trim()).filter(Boolean),
+    sols:        document.getElementById('f-sols').value.split(',').map(s=>s.trim()).filter(Boolean),
+    notes:       document.getElementById('f-notes').value.trim(),
+  };
+  if (!data.id || !data.name) { toast('Identifiant et nom requis','error'); return; }
+  try {
+    if (editing) await API.put('/admin/api/cepages/'+editing, data);
+    else         await API.post('/admin/api/cepages', data);
+    toast(editing ? 'Cépage modifié ✓' : 'Cépage ajouté ✓');
+    closeModal();
+    await load();
+  } catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+async function deleteCepage(id, name) {
+  if (!confirm(`Supprimer « ${name} » ?\nTous les sols géologiques associés seront également supprimés.`)) return;
+  try { await API.del('/admin/api/cepages/'+id); toast('Supprimé'); await load(); }
+  catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+load();
+</script>
+</body></html>

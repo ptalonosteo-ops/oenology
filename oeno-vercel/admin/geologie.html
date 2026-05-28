@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="fr">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Géologie</title><script src="_shared.js"></script></head>
+<body>
+<script>document.write(`<style>${CSS}</style>`);document.write(nav());</script>
+<main>
+  <h1>🪨 Fiches géologiques</h1>
+  <p class="sub">Éditez les sols et les 6 niveaux de contenu pédagogique par cépage</p>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-body" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <label style="margin:0;text-transform:none;font-size:14px;font-weight:600;color:#1a1710">Cépage :</label>
+      <select id="cepage-sel" onchange="loadSoils()" style="width:220px;margin:0">
+        <option value="">— Choisir un cépage —</option>
+      </select>
+      <span style="color:#6b6458;font-size:13px">puis</span>
+      <button class="btn btn-primary" id="add-btn" onclick="openNew()" disabled>+ Ajouter un sol</button>
+    </div>
+  </div>
+
+  <div id="pays-tabs" style="display:none">
+    <div class="tabs" style="max-width:300px">
+      <button class="tab active" id="tab-fr"    onclick="showPays('fr')">🇫🇷 France</button>
+      <button class="tab"        id="tab-monde" onclick="showPays('monde')">🌍 Monde</button>
+    </div>
+  </div>
+
+  <div id="soils-fr"    class="soils-section"></div>
+  <div id="soils-monde" class="soils-section" style="display:none"></div>
+</main>
+
+<!-- MODAL SOL -->
+<div class="modal-bg" id="modal">
+  <div class="modal" style="max-width:800px">
+    <div class="modal-hd">
+      <h2 id="modal-title">Nouveau sol</h2>
+      <button class="close-btn" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<style>
+.soil-card{background:#fff;border:1px solid #e5e0d5;border-radius:10px;margin-bottom:12px;overflow:hidden}
+.soil-card-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;user-select:none}
+.soil-card-hd:hover{background:#faf8f5}
+.soil-card-body{padding:16px;border-top:1px solid #f0ece5;display:none}
+.soil-card.open .soil-card-body{display:block}
+.soil-card.open .soil-chevron{transform:rotate(180deg)}
+.soil-chevron{transition:transform .2s;color:#6b6458;font-size:13px;margin-left:auto}
+.fiche-tab{flex:1;min-width:90px}
+.profile-bar{height:6px;border-radius:3px;background:#e5e0d5;overflow:hidden;margin-top:4px}
+.profile-fill{height:100%;border-radius:3px;background:#8b1a1a}
+</style>
+
+<script>
+let cepages=[], soils=[], currentCepage='', currentPays='fr', editingId=null;
+
+async function loadCepages() {
+  cepages = await API.get('/admin/api/cepages');
+  const sel = document.getElementById('cepage-sel');
+  sel.innerHTML = '<option value="">— Choisir un cépage —</option>' +
+    cepages.map(c=>`<option value="${c.id}">${escHtml(c.name)}</option>`).join('');
+}
+
+async function loadSoils() {
+  currentCepage = document.getElementById('cepage-sel').value;
+  document.getElementById('add-btn').disabled = !currentCepage;
+  if (!currentCepage) return;
+  soils = await API.get('/admin/api/geo?cepage='+currentCepage);
+  document.getElementById('pays-tabs').style.display = 'block';
+  renderSoils('fr');
+  renderSoils('monde');
+}
+
+function showPays(pays) {
+  currentPays = pays;
+  document.getElementById('tab-fr').classList.toggle('active', pays==='fr');
+  document.getElementById('tab-monde').classList.toggle('active', pays==='monde');
+  document.getElementById('soils-fr').style.display    = pays==='fr'    ? 'block':'none';
+  document.getElementById('soils-monde').style.display = pays==='monde' ? 'block':'none';
+}
+
+function renderSoils(pays) {
+  const list = soils.filter(s=>s.pays===pays);
+  const wrap = document.getElementById('soils-'+pays);
+  if (!list.length) {
+    wrap.innerHTML = `<div class="card"><div class="card-body empty">Aucun sol pour cette zone. <button class="btn btn-primary btn-sm" onclick="currentPays='${pays}';openNew()">+ Ajouter</button></div></div>`;
+    return;
+  }
+  wrap.innerHTML = list.map(s => {
+    const f = s.fiche||{};
+    const hasFiche = Object.values(f).some(v=>v);
+    return `
+    <div class="soil-card" id="sc-${s.id}">
+      <div class="soil-card-hd" onclick="toggleCard(${s.id})">
+        <div style="width:10px;height:10px;border-radius:50%;background:${hasFiche?'#22c55e':'#e5e0d5'}"></div>
+        <div>
+          <div style="font-weight:600;font-size:14px">${escHtml(s.nom||'Sol sans nom')}</div>
+          <div style="font-size:12px;color:#6b6458">${escHtml(s.region||'')} ${s.age?'· '+escHtml(s.age):''}</div>
+        </div>
+        <span class="soil-chevron">▼</span>
+      </div>
+      <div class="soil-card-body">
+        <p style="font-size:13px;line-height:1.6;color:#4a4035;margin-bottom:12px">${escHtml((s.description||'').slice(0,200))}${(s.description||'').length>200?'…':''}</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
+          ${['Acidité','Tanins','Corps','Garde'].map((lbl,i)=>{
+            const keys=['a','t','c','g'];
+            const val=(s.structure||{})[keys[i]]||0;
+            return `<div style="font-size:11px;color:#6b6458;font-weight:600">${lbl}<div class="profile-bar"><div class="profile-fill" style="width:${val}%"></div></div><div style="font-size:10px;margin-top:2px">${val}/100</div></div>`;
+          }).join('')}
+        </div>
+        <div style="margin-bottom:12px">
+          ${['geographie','geologie_detail','appellations','evolution','degustation','histoire'].map(k=>{
+            const icons={geographie:'📍',geologie_detail:'🔬',appellations:'📜',evolution:'⏳',degustation:'👃',histoire:'📖'};
+            const labels={geographie:'Géographie',geologie_detail:'Géologie détaillée',appellations:'Appellations',evolution:'Évolution',degustation:'Dégustation',histoire:'Histoire'};
+            const hasContent = f[k] && f[k].length>10;
+            return `<span style="display:inline-block;margin:2px 4px 2px 0;padding:2px 8px;border-radius:4px;font-size:11px;background:${hasContent?'#e8f4f0':'#f5f0ea'};color:${hasContent?'#1a6b4a':'#9a9080'}">${icons[k]} ${labels[k]}</span>`;
+          }).join('')}
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-secondary btn-sm" onclick="openEdit(${s.id})">✏️ Modifier ce sol</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteSoil(${s.id})">🗑 Supprimer</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCard(id) {
+  const el = document.getElementById('sc-'+id);
+  el.classList.toggle('open');
+}
+
+function soilForm(s={}) {
+  const f = s.fiche||{geographie:'',geologie_detail:'',appellations:'',evolution:'',degustation:'',histoire:''};
+  const st= s.structure||{a:70,t:30,c:60,g:70};
+  const ar= (s.aromes||[]).join(', ');
+  return `
+  <div class="form-row">
+    <div>
+      <label>Nom du sol</label>
+      <input type="text" id="f-nom" value="${escHtml(s.nom||'')}" placeholder="ex: Calcaire jurassique + argile bleue">
+    </div>
+    <div>
+      <label>Région / Terroir</label>
+      <input type="text" id="f-region" value="${escHtml(s.region||'')}">
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label>Âge géologique</label>
+      <input type="text" id="f-age" value="${escHtml(s.age||'')}" placeholder="ex: Jurassique — 155 Ma">
+    </div>
+    <div>
+      <label>Pays</label>
+      <select id="f-pays">
+        <option value="fr" ${(s.pays||currentPays)==='fr'?'selected':''}>🇫🇷 France</option>
+        <option value="monde" ${(s.pays||currentPays)==='monde'?'selected':''}>🌍 Monde</option>
+      </select>
+    </div>
+  </div>
+  <label>Description du sol</label>
+  <textarea id="f-desc" class="tall">${escHtml(s.description||'')}</textarea>
+  <label>Arômes (séparés par des virgules)</label>
+  <input type="text" id="f-aromes" value="${escHtml(ar)}" placeholder="Cerise rouge, Violette…">
+  <label>Clé pédagogique (point essentiel à retenir)</label>
+  <textarea id="f-key">${escHtml(s.key_point||'')}</textarea>
+
+  <label>Profil organoleptique (0 - 100)</label>
+  <div class="structure-grid">
+    ${['a','t','c','g'].map((k,i)=>`
+    <div>
+      <div style="font-size:11px;text-align:center;color:#6b6458;font-weight:600;margin-bottom:4px">${['Acidité','Tanins','Corps','Garde'][i]}</div>
+      <input type="number" id="f-s${k}" value="${st[k]||0}" min="0" max="100">
+    </div>`).join('')}
+  </div>
+
+  <div style="margin-top:16px">
+    <div style="font-size:13px;font-weight:600;color:#1a1710;margin-bottom:8px">📚 Fiche pédagogique — 6 niveaux</div>
+    <div class="tabs" id="fiche-tabs">
+      ${[['geographie','📍 Géographie'],['geologie_detail','🔬 Géologie'],['appellations','📜 Appellations'],['evolution','⏳ Évolution'],['degustation','👃 Dégustation'],['histoire','📖 Histoire']].map(([k,l],i)=>`
+      <button class="tab fiche-tab ${i===0?'active':''}" onclick="showFicheTab('${k}',this)">${l}</button>`).join('')}
+    </div>
+    ${[['geographie','Décrivez la localisation, l\'altitude, l\'exposition, les microclimats…'],
+       ['geologie_detail','Lecture verticale du sol, minéralogie, impact sur la vigne…'],
+       ['appellations','Hiérarchie des appellations, noms emblématiques, anecdotes…'],
+       ['evolution','Phases de vie du vin : 1-5 ans / 5-15 ans / 15-30 ans / 30+ ans…'],
+       ['degustation','Couleur, nez, bouche, comparaisons, test décisif pour identifier à l\'aveugle…'],
+       ['histoire','Dates clés, personnages historiques, anecdotes, faits remarquables…']].map(([k,ph],i)=>`
+    <div id="fiche-${k}" style="display:${i===0?'block':'none'}">
+      <textarea id="f-${k}" class="tall" style="min-height:180px" placeholder="${ph}">${escHtml(f[k]||'')}</textarea>
+    </div>`).join('')}
+  </div>
+
+  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px">
+    <button class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+    <button class="btn btn-primary" onclick="saveSoil()">💾 Enregistrer</button>
+  </div>`;
+}
+
+function showFicheTab(key, btn) {
+  ['geographie','geologie_detail','appellations','evolution','degustation','histoire'].forEach(k=>{
+    document.getElementById('fiche-'+k).style.display = k===key?'block':'none';
+  });
+  document.querySelectorAll('.fiche-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function openNew() {
+  editingId = null;
+  document.getElementById('modal-title').textContent = 'Nouveau sol géologique';
+  document.getElementById('modal-body').innerHTML = soilForm({pays:currentPays});
+  document.getElementById('modal').classList.add('open');
+}
+
+function openEdit(id) {
+  editingId = id;
+  const s = soils.find(x=>x.id===id);
+  document.getElementById('modal-title').textContent = 'Modifier — ' + (s.nom||'Sol');
+  document.getElementById('modal-body').innerHTML = soilForm(s);
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click', e=>{ if(e.target===document.getElementById('modal')) closeModal(); });
+
+async function saveSoil() {
+  const data = {
+    cepage_id:   currentCepage,
+    pays:        document.getElementById('f-pays').value,
+    nom:         document.getElementById('f-nom').value.trim(),
+    region:      document.getElementById('f-region').value.trim(),
+    age:         document.getElementById('f-age').value.trim(),
+    description: document.getElementById('f-desc').value.trim(),
+    aromes:      document.getElementById('f-aromes').value.split(',').map(s=>s.trim()).filter(Boolean),
+    key_point:   document.getElementById('f-key').value.trim(),
+    structure:   { a:+document.getElementById('f-sa').value, t:+document.getElementById('f-st').value,
+                   c:+document.getElementById('f-sc').value, g:+document.getElementById('f-sg').value },
+    fiche: {
+      geographie:     document.getElementById('f-geographie').value,
+      geologie_detail:document.getElementById('f-geologie_detail').value,
+      appellations:   document.getElementById('f-appellations').value,
+      evolution:      document.getElementById('f-evolution').value,
+      degustation:    document.getElementById('f-degustation').value,
+      histoire:       document.getElementById('f-histoire').value,
+    }
+  };
+  try {
+    if (editingId) await API.put('/admin/api/geo/'+editingId, data);
+    else           await API.post('/admin/api/geo', data);
+    toast(editingId ? 'Sol modifié ✓' : 'Sol ajouté ✓');
+    closeModal();
+    await loadSoils();
+  } catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+async function deleteSoil(id) {
+  if (!confirm('Supprimer ce sol géologique et sa fiche pédagogique ?')) return;
+  try { await API.del('/admin/api/geo/'+id); toast('Supprimé'); await loadSoils(); }
+  catch(e) { toast(e.error||'Erreur','error'); }
+}
+
+loadCepages();
+</script>
+</body></html>
