@@ -8,7 +8,7 @@ router.post('/login',(req,res)=>{
   res.status(401).json({error:'Mot de passe incorrect'});
 });
 router.post('/logout',(req,res)=>{destroySession(req.cookies?.oeno_admin);res.clearCookie('oeno_admin');res.json({ok:true});});
-router.use(requireAdmin);
+router.get(/\.(html|js|css)$/, (_req, _res, next) => next('router'));router.use(requireAdmin);
 
 router.get('/api/stats',async(req,res)=>{
   const {rows}=await query(`SELECT (SELECT COUNT(*)::int FROM cepages) cepages,(SELECT COUNT(*)::int FROM geo_soils) soils,(SELECT COUNT(*)::int FROM terroirs) terroirs,(SELECT COUNT(*)::int FROM exos) exos`);
