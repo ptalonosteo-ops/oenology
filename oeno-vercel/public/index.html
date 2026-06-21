@@ -132,8 +132,8 @@ const CEPAGES_INIT=[
   {id:'pinot-noir',name:'Pinot Noir',icon:'🍇',type:'rouge',famille:'Pinot',origine:'Bourgogne, France',description:'Cépage bourguignon par excellence. Peau fine, peu de tannins, grande sensibilité au terroir. Mutations : Pinot Blanc, Gris, Meunier.',structure:{a:80,t:35,c:45,g:75},aromes:['Cerise','Framboise','Groseille','Truffe (âge)','Sous-bois','Graphite'],terroirs_fr:['Côte de Nuits','Côte de Beaune','Sancerre rouge','Alsace','Jura'],terroirs_monde:['Oregon USA','Central Otago NZ','Hemel-en-Aarde SA','Bade Allemagne'],accords:["Canard à l'orange",'Bœuf bourguignon','Champignons','Chèvre affiné'],key_point:'Fenêtre sur son terroir — même cépage, vins radicalement différents selon le sol.',niveau:'intermediaire',exercice:true},
   {id:'chardonnay',name:'Chardonnay',icon:'🍾',type:'blanc',famille:'Pinot',origine:'Bourgogne, France',description:'Le blanc le plus planté au monde. Du Chablis austère au Meursault opulent. Même ancêtre que le Pinot Noir.',structure:{a:70,t:0,c:65,g:75},aromes:['Citron','Pomme','Beurre','Noisette','Craie','Ananas (chaud)'],terroirs_fr:['Chablis','Côte de Beaune','Champagne','Mâconnais'],terroirs_monde:['Napa Californie','Margaret River AUS','Elgin SA','Hawkes Bay NZ'],accords:['Homard','Saint-Jacques','Poulet rôti','Comté 24 mois'],key_point:'Caméléon des blancs — reflète autant le terroir que le vinificateur.',niveau:'debutant',exercice:true},
   {id:'cabernet-sauvignon',name:'Cabernet Sauvignon',icon:'🍷',type:'rouge',famille:'Cabernet',origine:'Bordeaux, France',description:'Peau épaisse, très tannique, grande aptitude à la garde. Issu d\'un croisement Cab Franc × Sauvignon Blanc.',structure:{a:68,t:90,c:82,g:95},aromes:['Cassis','Cèdre','Graphite','Poivron (jeune)','Tabac','Chocolat'],terroirs_fr:['Médoc — Pauillac','Saint-Émilion','Pessac-Léognan','Languedoc'],terroirs_monde:['Napa Valley USA','Maipo Chili','Coonawarra AUS','Stellenbosch SA'],accords:['Agneau grillé','Côte de bœuf','Fromages à pâte dure','Champignons truffés'],key_point:'Les graves du Médoc permettent au Cab de mûrir sous un climat atlantique sans elles trop froid.',niveau:'intermediaire',exercice:false},
-  {id:'syrah',name:'Syrah / Shiraz',icon:'🌶️',type:'rouge',famille:'Syrah',origine:'Rhône nord, France',description:'Double identité : Syrah élégante et poivrée en France, Shiraz concentré et fruité en Australie.',structure:{a:68,t:75,c:78,g:85},aromes:['Mûre','Violette','Olive noire','Poivre noir','Viande fumée','Réglisse'],terroirs_fr:['Côte-Rôtie','Hermitage','Cornas','Languedoc'],terroirs_monde:['Barossa Valley AUS','McLaren Vale AUS','Swartland SA','Washington State USA'],accords:["Gigot d'agneau",'Gibier','Tapenade','Fromages corsés'],key_point:'La rotundone (molécule du poivre noir) se synthétise mieux sur granit — science du terroir.',niveau:'intermediaire',exercice:false},
-  {id:'grenache',name:'Grenache',icon:'☀️',type:'rouge',famille:'Grenache',origine:'Aragon, Espagne',description:'Seul rouge combinant peu de tannins et beaucoup d\'alcool. Indispensable dans les assemblages GSM du Rhône.',structure:{a:45,t:30,c:75,g:65},aromes:['Fraise confite','Framboise','Garrigue','Cuir','Épices chaudes'],terroirs_fr:['Châteauneuf-du-Pape','Gigondas','Roussillon — Banyuls','Tavel'],terroirs_monde:['Priorat Espagne','McLaren Vale AUS','Rioja','Sardaigne (Cannonau)'],accords:['Daube provençale','Magret de canard','Tapenade','Fromages de brebis'],key_point:'Les galets de Châteauneuf = radiateur nocturne → alcool 14-16%. La géologie crée le style.',niveau:'debutant',exercice:false},
+  {id:'syrah',name:'Syrah / Shiraz',icon:'🌶️',type:'rouge',rose:true,famille:'Syrah',origine:'Rhône nord, France',description:'Double identité : Syrah élégante et poivrée en France, Shiraz concentré et fruité en Australie.',structure:{a:68,t:75,c:78,g:85},aromes:['Mûre','Violette','Olive noire','Poivre noir','Viande fumée','Réglisse'],terroirs_fr:['Côte-Rôtie','Hermitage','Cornas','Languedoc'],terroirs_monde:['Barossa Valley AUS','McLaren Vale AUS','Swartland SA','Washington State USA'],accords:["Gigot d'agneau",'Gibier','Tapenade','Fromages corsés'],key_point:'La rotundone (molécule du poivre noir) se synthétise mieux sur granit — science du terroir.',niveau:'intermediaire',exercice:false},
+  {id:'grenache',name:'Grenache',icon:'☀️',type:'rouge',rose:true,famille:'Grenache',origine:'Aragon, Espagne',description:'Seul rouge combinant peu de tannins et beaucoup d\'alcool. Indispensable dans les assemblages GSM du Rhône.',structure:{a:45,t:30,c:75,g:65},aromes:['Fraise confite','Framboise','Garrigue','Cuir','Épices chaudes'],terroirs_fr:['Châteauneuf-du-Pape','Gigondas','Roussillon — Banyuls','Tavel'],terroirs_monde:['Priorat Espagne','McLaren Vale AUS','Rioja','Sardaigne (Cannonau)'],accords:['Daube provençale','Magret de canard','Tapenade','Fromages de brebis'],key_point:'Les galets de Châteauneuf = radiateur nocturne → alcool 14-16%. La géologie crée le style.',niveau:'debutant',exercice:false},
   {id:'sauvignon-blanc',name:'Sauvignon Blanc',icon:'🌿',type:'blanc',famille:'Sauvignon',origine:'Val de Loire / Bordeaux, France',description:'Très aromatique, riche en thiols. Exprime la minéralité sur silex, le tropical sur alluvions.',structure:{a:90,t:0,c:45,g:45},aromes:['Buis','Pamplemousse','Herbe fraîche','Silex fumé','Fruit de la passion','Groseille blanche'],terroirs_fr:['Sancerre','Pouilly-Fumé','Pessac-Léognan','Touraine'],terroirs_monde:['Marlborough NZ','Styrie Autriche','Elgin SA','Frioul Italie'],accords:['Chèvre frais','Huîtres','Asperges','Poissons en sauce verte'],key_point:'Le silex de Pouilly-Fumé crée le "Blanc Fumé" — la géologie nomme le vin.',niveau:'debutant',exercice:true},
   {id:'chenin-blanc',name:'Chenin Blanc',icon:'🌕',type:'blanc',famille:'Chenin',origine:'Anjou, Val de Loire, France',description:'Le plus versatile des blancs — sec, demi-sec, moelleux, effervescent sur le même terroir.',structure:{a:85,t:0,c:58,g:90},aromes:['Coing','Pomme verte','Miel (âge)','Craie','Abricot confit','Safran'],terroirs_fr:['Vouvray','Saumur','Savennières','Quarts de Chaume','Jasnières'],terroirs_monde:['Swartland SA','Stellenbosch SA','Walker Bay SA'],accords:['Foie gras','Crustacés','Tarte tatin','Fromages de Loire'],key_point:'Tuffeau si poreux qu\'il permet tous les styles selon l\'année — sec ou liquoreux.',niveau:'avance',exercice:false},
   {id:'savagnin',name:'Savagnin',icon:'🏺',type:'blanc',famille:'Traminer',origine:'Jura, France',description:'Cépage jurassien ancestral, parent du Traminer (confirmé par ADN). Produit le Vin Jaune — 6 ans 3 mois minimum.',structure:{a:88,t:0,c:65,g:95},aromes:['Noix fraîche','Curry','Champignons secs','Amande','Épices exotiques'],terroirs_fr:['Arbois','Château-Chalon','L\'Étoile','Côtes du Jura'],terroirs_monde:['Tramin, Alto Adige'],accords:['Comté 36 mois','Morilles à la crème','Poulet au Vin Jaune','Époisses'],key_point:'Marnes bleues jurassiennes → acidité haute → 6 ans sous voile possible. La géologie crée le style.',niveau:'expert',exercice:false},
@@ -141,7 +141,16 @@ const CEPAGES_INIT=[
   {id:'aligote',name:'Aligoté',icon:'💎',type:'blanc',famille:'Pinot',origine:'Bourgogne, France',description:'Cépage blanc bourguignon réhabilité par Aubert de Villaine à Bouzeron. Inventé pour le Kir.',structure:{a:88,t:0,c:40,g:50},aromes:['Citron vif','Pomme verte','Craie','Fleurs blanches','Herbe légère'],terroirs_fr:['Bouzeron (seule AOC dédiée)','Bourgogne générique','Hautes-Côtes'],terroirs_monde:['Ukraine','Crimée','Russie'],accords:['Escargots','Chèvre frais','Poissons grillés','Kir (crème de cassis)'],key_point:'Bouzeron = seule AOC dédiée à l\'Aligoté, réhabilitée par Aubert de Villaine de la Romanée-Conti.',niveau:'debutant',exercice:false},
   {id:'traminer',name:'Traminer / Gewurztraminer',icon:'🌹',type:'blanc',famille:'Traminer',origine:'Tramin, Alto Adige / Alsace',description:'Le plus aromatique au monde. Riche en terpènes (géraniol, linalol). Né à Tramin en Alto Adige.',structure:{a:38,t:0,c:78,g:65},aromes:['Rose intense','Litchi','Mangue','Poivre rose','Miel de fleurs'],terroirs_fr:['Alsace GC Hengst','Alsace GC Brand','Alsace GC Rangen'],terroirs_monde:['Tramin Alto Adige (berceau)','Pfalz Allemagne','Gisborne NZ'],accords:['Munster','Foie gras','Cuisine alsacienne','Desserts exotiques'],key_point:'Granit pauvre stresse la vigne → concentration maximale des terpènes → explosion aromatique.',niveau:'debutant',exercice:true},
   {id:'pinot-blanc',name:'Pinot Blanc',icon:'🤍',type:'blanc',famille:'Pinot',origine:'Alsace / Alto Adige',description:'Mutation du Pinot Noir. Plus léger que le Chardonnay. Excellent en Crémant et en Pinot Bianco.',structure:{a:65,t:0,c:52,g:50},aromes:['Pomme','Poire','Amande fraîche','Fleurs blanches','Beurre léger'],terroirs_fr:['Alsace granitique','Alsace calcaire'],terroirs_monde:['Alto Adige (Pinot Bianco)','Bade Allemagne (Weissburgunder)'],accords:['Quiche lorraine','Poissons blancs','Risotto','Fromages à pâte molle'],key_point:'Mutation du Pinot Noir — même famille, expression radicalement différente selon le terroir.',niveau:'debutant',exercice:false},
-];
+{"id": "merlot", "name": "Merlot", "icon": "🍇", "type": "rouge", "rose": true, "famille": "Cabernet", "origine": "Bordeaux (Libournais), France", "description": "Le cépage rouge le plus planté au monde. Rondeur, souplesse et fruité généreux. Maturité précoce, peau fine. Pilier des vins de la rive droite de Bordeaux (Saint-Émilion, Pomerol).", "structure": {"a": 50, "t": 55, "c": 70, "g": 65}, "aromes": ["Prune", "Mûre", "Cerise noire", "Pruneau", "Chocolat", "Cuir (âge)"], "terroirs_fr": ["Saint-Émilion", "Pomerol", "Fronsac", "Bergerac", "Languedoc"], "terroirs_monde": ["Toscane Italie", "Californie USA", "Chili", "Washington USA"], "accords": ["Magret de canard", "Agneau", "Viandes rouges mijotées", "Fromages à pâte molle"], "key_point": "Souplesse et générosité immédiates — le cépage de la rondeur, accessible jeune.", "niveau": "debutant", "exercice": true},
+{"id": "gamay", "name": "Gamay", "icon": "🍇", "type": "rouge", "rose": true, "famille": "Pinot", "origine": "Bourgogne / Beaujolais, France", "description": "Cépage emblématique du Beaujolais, né d'un croisement Pinot Noir × Gouais blanc. Vins légers, fruités, peu tanniques, souvent vinifiés en macération carbonique. Du primeur joyeux aux crus de garde.", "structure": {"a": 70, "t": 30, "c": 40, "g": 45}, "aromes": ["Banane (primeur)", "Framboise", "Cerise", "Pivoine", "Bonbon anglais", "Granite (crus)"], "terroirs_fr": ["Beaujolais", "Crus du Beaujolais (Morgon, Fleurie)", "Touraine", "Auvergne"], "terroirs_monde": ["Suisse", "Oregon USA", "Canada"], "accords": ["Charcuterie", "Volaille", "Plateau de cochonnailles", "Cuisine bistrot"], "key_point": "La macération carbonique fait le fruité bonbon — légèreté et gourmandise.", "niveau": "debutant", "exercice": true},
+{"id": "cabernet-franc", "name": "Cabernet Franc", "icon": "🍇", "type": "rouge", "rose": true, "famille": "Cabernet", "origine": "Sud-Ouest / Bordeaux, France", "description": "Parent du Cabernet Sauvignon (croisé avec Sauvignon Blanc). Plus souple et aromatique que son descendant. Roi de la Loire (Chinon, Bourgueil), il apporte finesse et fraîcheur. Note de poivron si maturité incomplète.", "structure": {"a": 65, "t": 55, "c": 55, "g": 65}, "aromes": ["Framboise", "Violette", "Poivron (frais)", "Mine de crayon", "Cassis", "Épices douces"], "terroirs_fr": ["Chinon", "Bourgueil", "Saumur-Champigny", "Saint-Émilion", "Anjou"], "terroirs_monde": ["Toscane Italie", "Vallée de Loire", "Californie USA", "Argentine"], "accords": ["Volaille rôtie", "Charcuterie fine", "Légumes grillés", "Fromages de chèvre"], "key_point": "La note de poivron signale une maturité juste — marqueur d'identification à l'aveugle.", "niveau": "intermediaire", "exercice": true},
+{"id": "malbec", "name": "Malbec (Côt)", "icon": "🍇", "type": "rouge", "rose": false, "famille": "Cabernet", "origine": "Sud-Ouest (Cahors), France", "description": "Appelé Côt ou Auxerrois en France, il fait le 'vin noir' de Cahors. Devenu emblème de l'Argentine où il s'épanouit en altitude. Couleur intense, tanins fermes, fruité noir profond.", "structure": {"a": 55, "t": 75, "c": 80, "g": 70}, "aromes": ["Mûre", "Prune noire", "Violette", "Réglisse", "Cacao", "Fumée"], "terroirs_fr": ["Cahors", "Bergerac", "Sud-Ouest"], "terroirs_monde": ["Mendoza Argentine", "Chili", "Californie USA", "Cahors"], "accords": ["Viandes grillées", "Bœuf", "Cassoulet", "Gibier", "Fromages forts"], "key_point": "Cahors = austère et terrien ; Mendoza = velouté et solaire. Même cépage, deux mondes.", "niveau": "intermediaire", "exercice": true},
+{"id": "cinsault", "name": "Cinsault", "icon": "🍇", "type": "rouge", "rose": true, "famille": "Grenache", "origine": "Languedoc / Provence, France", "description": "Cépage roi du rosé de Provence. Productif, résistant à la chaleur et à la sécheresse. Peu coloré et peu tannique, il apporte finesse, fraîcheur et arômes floraux aux assemblages rosés et rouges légers.", "structure": {"a": 60, "t": 25, "c": 35, "g": 40}, "aromes": ["Fraise", "Pamplemousse", "Rose", "Pêche", "Grenadine", "Garrigue"], "terroirs_fr": ["Provence", "Languedoc", "Vallée du Rhône", "Corse"], "terroirs_monde": ["Afrique du Sud", "Liban", "Maroc", "Australie"], "accords": ["Cuisine méditerranéenne", "Salades", "Grillades d'été", "Tapas"], "key_point": "Finesse et fraîcheur — l'allié indispensable des rosés de Provence.", "niveau": "intermediaire", "exercice": false},
+{"id": "mourvedre", "name": "Mourvèdre", "icon": "🍇", "type": "rouge", "rose": true, "famille": "Grenache", "origine": "Espagne / Provence, France", "description": "Cépage tardif et solaire (Monastrell en Espagne). Star de Bandol où il donne des rouges puissants de longue garde. Tanins fermes, couleur dense, gibier et garrigue. Apporte structure aux rosés de Provence.", "structure": {"a": 55, "t": 80, "c": 80, "g": 80}, "aromes": ["Mûre", "Poivre noir", "Cuir", "Garrigue", "Thym", "Gibier"], "terroirs_fr": ["Bandol", "Provence", "Vallée du Rhône Sud", "Languedoc"], "terroirs_monde": ["Jumilla Espagne", "Californie USA", "Australie (Mataro)"], "accords": ["Daube provençale", "Gibier", "Agneau aux herbes", "Fromages affinés"], "key_point": "Tardif et puissant — il exige le soleil et donne les grands Bandol de garde.", "niveau": "avance", "exercice": false},
+{"id": "riesling", "name": "Riesling", "icon": "🍇", "type": "blanc", "rose": false, "famille": "Traminer", "origine": "Vallée du Rhin, Allemagne", "description": "Le grand blanc noble par excellence. Acidité cristalline, transparence au terroir, immense potentiel de garde. Du sec minéral au liquoreux. Développe des notes de pétrole (kérosène) en vieillissant — signature unique.", "structure": {"a": 90, "t": 0, "c": 45, "g": 90}, "aromes": ["Citron", "Pomme verte", "Pêche blanche", "Tilleul", "Pétrole (âge)", "Pierre à fusil"], "terroirs_fr": ["Alsace", "Grands Crus d'Alsace"], "terroirs_monde": ["Moselle Allemagne", "Rheingau Allemagne", "Clare Valley Australie", "Finger Lakes USA"], "accords": ["Choucroute", "Poissons", "Cuisine asiatique", "Fromages de caractère"], "key_point": "La note de pétrole avec l'âge = signature absolue du Riesling à l'aveugle.", "niveau": "avance", "exercice": true},
+{"id": "viognier", "name": "Viognier", "icon": "🍇", "type": "blanc", "rose": false, "famille": "Autre", "origine": "Vallée du Rhône Nord, France", "description": "Cépage rare et aromatique, sauvé de l'extinction. Star de Condrieu et Château-Grillet. Vins opulents, gras, peu acides, au nez intense d'abricot et de fleurs. Parfois co-fermenté avec la Syrah à Côte-Rôtie.", "structure": {"a": 40, "t": 0, "c": 80, "g": 50}, "aromes": ["Abricot", "Pêche", "Chèvrefeuille", "Violette", "Miel", "Épices douces"], "terroirs_fr": ["Condrieu", "Château-Grillet", "Côtes du Rhône", "Languedoc"], "terroirs_monde": ["Californie USA", "Australie", "Chili", "Argentine"], "accords": ["Cuisine épicée", "Poisson en sauce", "Volaille crémée", "Cuisine thaï"], "key_point": "Opulence et abricot — un blanc gras et parfumé, à boire plutôt jeune.", "niveau": "avance", "exercice": false},
+{"id": "muscat", "name": "Muscat blanc", "icon": "🍇", "type": "blanc", "rose": false, "famille": "Autre", "origine": "Méditerranée (très ancien)", "description": "L'un des plus anciens cépages connus, le seul dont le vin sent vraiment le raisin frais. Décliné en sec (Alsace), en muté doux (Beaumes-de-Venise, Rivesaltes) et en effervescent (Asti). Très aromatique.", "structure": {"a": 55, "t": 0, "c": 55, "g": 40}, "aromes": ["Raisin frais", "Rose", "Litchi", "Fleur d'oranger", "Menthe", "Agrumes confits"], "terroirs_fr": ["Alsace", "Beaumes-de-Venise", "Rivesaltes", "Frontignan", "Corse"], "terroirs_monde": ["Asti Italie", "Grèce (Samos)", "Espagne", "Australie"], "accords": ["Apéritif", "Desserts aux fruits", "Foie gras", "Tartes"], "key_point": "Le seul cépage dont le vin sent le raisin — reconnaissable entre tous.", "niveau": "debutant", "exercice": false},
+{"id": "pinot-gris", "name": "Pinot Gris", "icon": "🍇", "type": "blanc", "rose": false, "famille": "Pinot", "origine": "Bourgogne / Alsace, France", "description": "Mutation grise du Pinot Noir. Deux visages : riche et épicé en Alsace (gras, parfois moelleux), vif et léger en Italie (Pinot Grigio). Baies à la peau gris-rosé donnant des vins parfois cuivrés.", "structure": {"a": 55, "t": 0, "c": 70, "g": 55}, "aromes": ["Poire", "Coing", "Fumée", "Champignon", "Miel", "Épices"], "terroirs_fr": ["Alsace", "Grands Crus d'Alsace"], "terroirs_monde": ["Vénétie Italie (Grigio)", "Oregon USA", "Allemagne (Grauburgunder)", "Nouvelle-Zélande"], "accords": ["Cuisine alsacienne", "Poissons fumés", "Volaille", "Tartes salées"], "key_point": "Alsace = riche et épicé ; Grigio italien = vif et léger. Deux styles opposés.", "niveau": "intermediaire", "exercice": false}];
 
 const GEO_INIT={
   'pinot-noir':{
@@ -670,7 +679,7 @@ let S={
   data:{cepages:[...CEPAGES_INIT],geo:JSON.parse(JSON.stringify(GEO_INIT)),exos:[...EXOS_INIT]},
   saved:false,
   // cepages
-  cp_sel:null, cp_edit:false, cp_new:false, cp_filter:'all', cp_search:'',
+  cp_sel:null,ess_sel:null, cp_edit:false, cp_new:false, cp_filter:'all', cp_search:'',
   famille_open:null,
   // geo
   geo_cpg:'pinot-noir', geo_tab:'fr', geo_soil:0, geo_mode:'resume',
@@ -977,15 +986,88 @@ function render(){
   app.innerHTML=`<div class="wrap">${renderNav()}${renderSection()}</div>`;
 }
 function renderNav(){
-  const tabs=[{id:'dashboard',e:'◧',l:'Tableau de bord'},{id:'cepages',e:'🍇',l:'Cépages'},{id:'geologie',e:'🪨',l:'Géologie'},{id:'terroirs',e:'🗺',l:'Terroirs'},{id:'exercices',e:'🎯',l:'Exercices'},{id:'settings',e:'⚙',l:'Paramètres'}];
+  const tabs=[{id:'dashboard',e:'◧',l:'Tableau de bord'},{id:'essentiels',e:'⭐',l:'Les essentiels'},{id:'cepages',e:'🍇',l:'Cépages'},{id:'geologie',e:'🪨',l:'Géologie'},{id:'terroirs',e:'🗺',l:'Terroirs'},{id:'exercices',e:'🎯',l:'Exercices'},{id:'settings',e:'⚙',l:'Paramètres'}];
   return `<nav class="nav">
     <div class="nav-brand"><h1>Œnologie App</h1><p>Gestion des contenus</p></div>
     ${tabs.map(t=>`<button class="nav-tab ${S.nav===t.id?'on':''}" onclick="nav('${t.id}')">${t.e} ${t.l}</button>`).join('')}
     ${S.saved?'<span class="saved-badge">✓ Sauvegardé</span>':''}
   </nav>`;
 }
+function essSelect(id){
+  const willOpen = S.ess_sel!==id;
+  update({ess_sel:S.ess_sel===id?null:id});
+  if(willOpen){
+    setTimeout(()=>{
+      const el=document.getElementById('ess-detail');
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    },60);
+  }
+}
+function essBackTop(){
+  update({ess_sel:null});
+  setTimeout(()=>window.scrollTo({top:0,behavior:'smooth'}),60);
+}
+
+function renderEssentiels(){
+  const {cepages}=S.data;
+  const sel = S.ess_sel ? cepages.find(c=>c.id===S.ess_sel) : null;
+
+  const groupes = [
+    {key:'rouge', titre:'Cépages rouges',  emoji:'🍷', col:'#7c2d3a', bg:'#fbeef0',
+     filtre:c=>c.type==='rouge'},
+    {key:'blanc', titre:'Cépages blancs',  emoji:'🥂', col:'#9a7b1e', bg:'#fbf6e7',
+     filtre:c=>c.type==='blanc'},
+    {key:'rose',  titre:'Cépages à rosé',  emoji:'🌸', col:'#c2567a', bg:'#fcedf3',
+     filtre:c=>c.rose===true},
+  ];
+
+  const carte = (c, accent) => `
+    <button onclick="essSelect('${c.id}')" style="
+      display:flex;align-items:center;gap:10px;text-align:left;cursor:pointer;
+      border:2px solid ${S.ess_sel===c.id?accent:'#e5e0d5'};border-radius:12px;
+      padding:11px 13px;background:${S.ess_sel===c.id?'#fff':'#fff'};
+      transition:border-color .15s;width:100%">
+      <span style="font-size:22px;flex-shrink:0">${c.icon||'🍇'}</span>
+      <span style="flex:1;min-width:0">
+        <span style="display:block;font-size:14px;font-weight:600;color:#1a1710">${esc(c.name)}</span>
+        <span style="display:block;font-size:11px;color:#9a9080;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(c.famille||'')} · ${esc((c.origine||'').split(',')[0])}</span>
+      </span>
+    </button>`;
+
+  return `<div class="section">
+    <div style="margin-bottom:1.25rem">
+      <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:400;margin:0 0 .35rem;color:#1a1710">⭐ Les essentiels</h2>
+      <p style="margin:0;font-size:13.5px;color:#6b6458;line-height:1.6">Les cépages incontournables à connaître, classés par couleur. Cliquez sur un cépage pour afficher sa fiche complète.</p>
+    </div>
+
+    ${groupes.map(g=>{
+      const list = cepages.filter(g.filtre);
+      if(!list.length) return '';
+      return `<div style="margin-bottom:1.5rem">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:.7rem;padding:7px 12px;background:${g.bg};border-radius:8px">
+          <span style="font-size:18px">${g.emoji}</span>
+          <span style="font-size:14px;font-weight:700;color:${g.col}">${g.titre}</span>
+          <span style="font-size:12px;color:#9a9080;margin-left:auto">${list.length} cépage${list.length>1?'s':''}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:9px">
+          ${list.map(c=>carte(c,g.col)).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+
+    ${sel?`<div id="ess-detail" style="margin-top:1.25rem;scroll-margin-top:80px">
+      <div class="flex-row" style="gap:8px;margin-bottom:1rem">
+        <button class="btn btn-sm" onclick="essBackTop()" style="background:#f0ece5;border:1px solid #e0dbd3">↑ Revenir aux essentiels</button>
+        <button class="btn btn-sm" onclick="nav('dashboard')" style="background:#f0ece5;border:1px solid #e0dbd3">🏠 Revenir à l'accueil</button>
+      </div>
+      ${renderCepageDetail(sel)}
+    </div>`:''}
+  </div>`;
+}
+
 function renderSection(){
   if(S.nav==='dashboard') return renderDashboard();
+  if(S.nav==='essentiels') return renderEssentiels();
   if(S.nav==='cepages') return renderCepages();
   if(S.nav==='geologie') return renderGeologie();
   if(S.nav==='terroirs') return renderTerroirs();
@@ -1365,7 +1447,7 @@ function renderCepages(){
     <div class="grid-4" style="margin-bottom:${sel&&!S.cp_edit?'1rem':'0'}">
       ${filtered.map(c=>renderCepageCard(c)).join('')}
     </div>
-    ${sel&&!S.cp_edit?`<div style="margin-top:1rem">${renderCepageDetail(sel)}</div>`:''}
+    ${sel&&!S.cp_edit?`<div id="cepage-detail" style="margin-top:1rem;scroll-margin-top:80px">${renderCepageDetail(sel)}</div>`:''}
   </div>`;
 }
 function renderCepageCard(c){
@@ -1385,6 +1467,10 @@ function renderCepageCard(c){
 function renderCepageDetail(c){
   const ts=typeStyle(c.type),ns=nivStyle(c.niveau);
   return `<div class="card">
+    <div class="flex-row" style="gap:8px;margin-bottom:1rem">
+      <button class="btn btn-sm" onclick="backToCepages()" style="background:#f0ece5;border:1px solid #e0dbd3">↑ Revenir aux cépages</button>
+      <button class="btn btn-sm" onclick="nav('dashboard')" style="background:#f0ece5;border:1px solid #e0dbd3">🏠 Revenir à l'accueil</button>
+    </div>
     <div class="flex-row" style="margin-bottom:1rem;padding-bottom:.875rem;border-bottom:1px solid #e0dbd3">
       <span style="font-size:28px">${c.icon}</span>
       <div style="flex:1">
@@ -1669,7 +1755,20 @@ function nav(id){update({nav:id,cp_sel:null,cp_edit:false,cp_new:false,form:{}})
 // Cépages
 function cpFilter(f){update({cp_filter:f});}
 function cpSearch(v){update({cp_search:v});}
-function cpSelect(id){update({cp_sel:S.cp_sel===id?null:id,cp_edit:false,cp_new:false,form:{}});}
+function backToCepages(){
+  update({cp_sel:null,cp_edit:false,cp_new:false,form:{}});
+  setTimeout(()=>window.scrollTo({top:0,behavior:'smooth'}),60);
+}
+function cpSelect(id){
+  const willOpen = S.cp_sel!==id;
+  update({cp_sel:S.cp_sel===id?null:id,cp_edit:false,cp_new:false,form:{}});
+  if(willOpen){
+    setTimeout(()=>{
+      const el=document.getElementById('cepage-detail');
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    },60);
+  }
+}
 function cpNew(){update({cp_new:true,cp_edit:true,cp_sel:null,form:{}});}
 function cpEdit(){update({cp_edit:true,cp_new:false,form:{}});}
 function cpCancelEdit(){update({cp_edit:false,cp_new:false,form:{}});}
