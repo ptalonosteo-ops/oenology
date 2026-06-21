@@ -986,7 +986,7 @@ function render(){
   app.innerHTML=`<div class="wrap">${renderNav()}${renderSection()}</div>`;
 }
 function renderNav(){
-  const tabs=[{id:'dashboard',e:'◧',l:'Tableau de bord'},{id:'essentiels',e:'⭐',l:'Les essentiels'},{id:'cepages',e:'🍇',l:'Cépages'},{id:'geologie',e:'🪨',l:'Géologie'},{id:'terroirs',e:'🗺',l:'Terroirs'},{id:'exercices',e:'🎯',l:'Exercices'},{id:'settings',e:'⚙',l:'Paramètres'}];
+  const tabs=[{id:'dashboard',e:'◧',l:'Tableau de bord'},{id:'essentiels',e:'⭐',l:'Les cépages essentiels'},{id:'cepages',e:'🍇',l:'Cépages'},{id:'geologie',e:'🪨',l:'Géologie'},{id:'terroirs',e:'🗺',l:'Terroirs'},{id:'exercices',e:'🎯',l:'Exercices'},{id:'settings',e:'⚙',l:'Paramètres'}];
   return `<nav class="nav">
     <div class="nav-brand"><h1>Œnologie App</h1><p>Gestion des contenus</p></div>
     ${tabs.map(t=>`<button class="nav-tab ${S.nav===t.id?'on':''}" onclick="nav('${t.id}')">${t.e} ${t.l}</button>`).join('')}
@@ -1036,7 +1036,7 @@ function renderEssentiels(){
 
   return `<div class="section">
     <div style="margin-bottom:1.25rem">
-      <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:400;margin:0 0 .35rem;color:#1a1710">⭐ Les essentiels</h2>
+      <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:400;margin:0 0 .35rem;color:#1a1710">⭐ Les cépages essentiels</h2>
       <p style="margin:0;font-size:13.5px;color:#6b6458;line-height:1.6">Les cépages incontournables à connaître, classés par couleur. Cliquez sur un cépage pour afficher sa fiche complète.</p>
     </div>
 
