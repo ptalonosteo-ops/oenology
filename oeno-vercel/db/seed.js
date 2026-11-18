@@ -1,3 +1,4 @@
+
 'use strict';
 require('dotenv').config();
 
@@ -22,34 +23,39 @@ const DATA_FILE = path.join(__dirname, '..', 'data.json');
     const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
     await client.query('BEGIN');
 
-    // Cépages : on AJOUTE les manquants sans écraser les existants
-    let added = 0;
+    // 1. Cépages : ajout des manquants, sans écraser les existants
+    let addedCep = 0;
     for (const c of (data.cepages||[])) {
       const r = await client.query(
         `INSERT INTO cepages(id,name,famille,origine,description,color,aromes,sols,notes)
          VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9) ON CONFLICT(id) DO NOTHING`,
         [c.id,c.name,c.famille||'',c.origine||'',c.description||'',c.color||'#8b7355',
          JSON.stringify(c.aromes||[]),JSON.stringify(c.sols||[]),c.notes||'']);
-      if (r.rowCount > 0) added++;
+      if (r.rowCount > 0) addedCep++;
     }
-    console.log(`✓ Cépages : ${added} ajouté(s), ${(data.cepages||[]).length - added} déjà présent(s).`);
+    console.log(`✓ Cépages : ${addedCep} ajouté(s), ${(data.cepages||[]).length - addedCep} déjà présent(s).`);
 
-    // Sols géologiques : seulement si la table est vide
-    const soilCount = await client.query('SELECT COUNT(*)::int AS n FROM geo_soils');
-    if (soilCount.rows[0].n === 0) {
-      for (const s of (data.geo_soils||[])) {
+    // 2. Géologie : pour chaque cépage SANS sol en base, on insère ses sols
+    const soilsByCep = {};
+    for (const s of (data.geo_soils||[])) {
+      (soilsByCep[s.cepage_id] = soilsByCep[s.cepage_id] || []).push(s);
+    }
+    let addedSoils = 0;
+    for (const [cid, soils] of Object.entries(soilsByCep)) {
+      const exists = await client.query('SELECT COUNT(*)::int AS n FROM geo_soils WHERE cepage_id=$1', [cid]);
+      if (exists.rows[0].n > 0) continue;
+      for (const s of soils) {
         await client.query(
           `INSERT INTO geo_soils(cepage_id,pays,sort_order,nom,region,age,description,structure,aromes,key_point,fiche)
            VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)`,
           [s.cepage_id,s.pays,s.sort_order,s.nom||'',s.region||'',s.age||'',s.description||'',
            JSON.stringify(s.structure||{}),JSON.stringify(s.aromes||[]),s.key_point||'',JSON.stringify(s.fiche||{})]);
+        addedSoils++;
       }
-      console.log(`✓ Sols géologiques : ${(data.geo_soils||[]).length} importés.`);
-    } else {
-      console.log(`✓ Sols géologiques : ${soilCount.rows[0].n} déjà en base, import ignoré.`);
     }
+    console.log(`✓ Sols géologiques : ${addedSoils} ajouté(s) pour les nouveaux cépages.`);
 
-    // Exercices : ajout des manquants
+    // 3. Exercices : ajout des manquants
     for (let i=0; i<(data.exos||[]).length; i++) {
       const e=data.exos[i];
       await client.query(
