@@ -3186,6 +3186,646 @@
         "degustation": "À l'aveugle : COULEUR jaune pâle à dorée. NEZ poire mûre, pomme dorée, fleurs printanières légères, beurre discret. BOUCHE plus ample et fruité que l'Alsace. Moins minéral qu'Alto Adige. Test : si c'est le Pinot Blanc le plus fruité sans être boisé — Kaiserstuhl.",
         "histoire": "Le Kaiserstuhl est l'un des seuls terroirs en dehors de la Bourgogne permettant aux cépages bourguignons (Pinot Noir, Pinot Blanc, Chardonnay) d'atteindre une vraie qualité européenne. Bernhard Huber (1992-2014) a lancé la renaissance du Pinot Noir et du Pinot Blanc du Kaiserstuhl."
       }
+    },
+    {
+      "id": 71,
+      "cepage_id": "merlot",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Argile à crasse de fer (plateau de Pomerol)",
+      "region": "Pomerol — rive droite de Bordeaux",
+      "age": "Tertiaire à Quaternaire — argiles sur molasse",
+      "description": "Le terroir le plus cher du monde au mètre carré. Le plateau de Pomerol repose sur des argiles profondes traversées d'une couche d'oxyde de fer appelée « crasse de fer » (ou machefer). Cette argile retient l'eau et la restitue lentement, nourrissant le Merlot en continu. Sur l'argile bleue pure du sommet du plateau naît Pétrus ; dès qu'on descend vers les graves, le style s'allège.",
+      "structure": {
+        "a": 50,
+        "t": 60,
+        "c": 78,
+        "g": 80
+      },
+      "aromes": [
+        "Prune",
+        "Truffe",
+        "Violette",
+        "Cuir",
+        "Réglisse"
+      ],
+      "key_point": "L'argile retient l'eau et la libère lentement : le Merlot ne souffre jamais de sécheresse et atteint une maturité veloutée. La crasse de fer apporte la profondeur aromatique.",
+      "fiche": {
+        "geographie": "Le plateau de Pomerol est minuscule : 800 ha seulement, sans véritable village ni château ostentatoire. Altitude modeste de 35-40 m. Exposition peu déterminante car le plateau est presque plat — c'est la nature du sol, et non la pente, qui fait la hiérarchie ici. À l'est et au sud, le terrain descend vers la vallée de l'Isle, les sols s'allègent en graves et sables.",
+        "geologie_detail": "Lecture verticale :\n▪ 0-40 cm : Argile brune avec graviers\n▪ 40-100 cm : Argile bleue compacte, parfois pure (sommet du plateau)\n▪ 1 m+ : « Crasse de fer » — couche d'oxyde de fer (limonite) issue du lessivage. Les racines la traversent difficilement, ce qui force la vigne à se concentrer.\n\nL'argile gonfle à l'eau et se rétracte en séchant, créant un effet de régulation hydrique idéal pour le Merlot, cépage précoce et gourmand en eau.",
+        "appellations": "▪ Pomerol → pas de classement officiel, mais une hiérarchie de fait\n▪ Pétrus → sur la calotte d'argile bleue pure (11,5 ha)\n▪ Le Pin, Lafleur, Vieux Château Certan → grands voisins\n▪ Lalande-de-Pomerol → appellation satellite, sols plus sableux, vins plus souples\n\nFait notable : Pomerol n'a jamais eu de classement, à la différence du Médoc (1855) ou de Saint-Émilion.",
+        "evolution": "4 phases :\n1-5 ans → Prune, mûre, fruité gourmand. Tanins fondus dès la jeunesse.\n5-12 ans → Truffe naissante, sous-bois, épices.\n12-25 ans → Truffe noire, cuir, gibier — l'apogée des grands Pomerol sur argile.\n25 ans+ → Réservé aux grands millésimes (Pétrus, Lafleur) : fondu velouté exceptionnel.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Grenat profond, dense mais pas opaque.\nNEZ : Prune mûre + truffe + violette. La truffe signe l'argile de Pomerol.\nBOUCHE : Texture veloutée, tanins ronds, sensation « sphérique ». Finale sur la réglisse.\nDISTINGUER : Saint-Émilion calcaire → plus de fraîcheur et de tension ; Médoc (Cabernet) → tanins plus fermes, cassis et mine de crayon.",
+        "histoire": "Époque romaine : premières vignes sur le plateau.\nMoyen Âge : les Hospitaliers de Saint-Jean-de-Jérusalem plantent la vigne (d'où le lieu-dit « l'Hôpital »).\nXIXe s. : Pomerol reste rural et méconnu, vendu via Libourne.\n1945-1960 : Pétrus accède à la notoriété mondiale grâce à Madame Loubat et au négociant Jean-Pierre Moueix.\nAujourd'hui : le mètre carré de vigne le plus cher du monde."
+      }
+    },
+    {
+      "id": 72,
+      "cepage_id": "merlot",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Argiles marines de Toscane (Bolgheri)",
+      "region": "Bolgheri / Maremma — Toscane, Italie",
+      "age": "Pliocène — argiles et sables marins",
+      "description": "Sur la côte toscane, loin du Chianti, le Merlot a trouvé une terre d'élection sur les argiles marines de Bolgheri. C'est ici que naît Masseto, Merlot pur le plus réputé d'Italie, sur une colline d'argile bleue compacte. Le climat maritime tempère les chaleurs et donne des vins concentrés mais frais.",
+      "structure": {
+        "a": 55,
+        "t": 65,
+        "c": 80,
+        "g": 78
+      },
+      "aromes": [
+        "Mûre",
+        "Prune noire",
+        "Cacao",
+        "Menthe",
+        "Cuir"
+      ],
+      "key_point": "Même cépage qu'à Pomerol, même argile bleue, mais sous un climat méditerranéen : le Merlot toscan gagne en concentration solaire tout en gardant la fraîcheur de la brise marine.",
+      "fiche": {
+        "geographie": "Bolgheri est une appellation côtière de la Maremma toscane, ouverte sur la mer Tyrrhénienne. Les vignes s'étendent sur une plaine et des collines basses (0-100 m). La brise marine quotidienne (la « maestrale ») rafraîchit les nuits et préserve l'acidité. Le célèbre cyprès de la route de Bolgheri longe le vignoble.",
+        "geologie_detail": "Lecture verticale (colline de Masseto) :\n▪ Surface : argiles bleues compactes (« argille azzurre » du Pliocène)\n▪ Profondeur : marnes et sables marins\n\nLes argiles bleues, d'origine marine, retiennent l'eau comme à Pomerol mais sous un ensoleillement bien supérieur. Ailleurs à Bolgheri, on trouve des galets, des graviers et des sables alluviaux qui conviennent au Cabernet.",
+        "appellations": "▪ Bolgheri DOC → créée en 1983, élargie en 1994\n▪ Bolgheri Sassicaia DOC → sous-zone unique dédiée à un seul domaine\n▪ « Super-toscans » → vins hors appellation traditionnelle, à base de cépages bordelais (Cabernet, Merlot)\n\nMasseto (Merlot pur) est un IGT Toscana, preuve que la hiérarchie italienne ne suit pas toujours la qualité réelle.",
+        "evolution": "1-5 ans → Fruit noir éclatant, notes méditerranéennes (menthe, garrigue).\n5-12 ans → Cacao, cuir, épices douces.\n12-20 ans → Truffe, tabac, fondu velouté.\n20 ans+ → Les grands millésimes de Masseto rivalisent avec Pétrus en garde.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Pourpre dense, jeune et solaire.\nNEZ : Mûre + cacao + note mentholée méditerranéenne.\nBOUCHE : Plus charnu et solaire qu'un Pomerol, mais la brise marine maintient la fraîcheur.\nDISTINGUER : Pomerol → plus de truffe et de retenue ; Napa → plus de sucrosité et de bois.",
+        "histoire": "Années 1940 : la famille Incisa della Rocchetta plante du Cabernet à Bolgheri (futur Sassicaia).\n1968 : premier millésime commercial de Sassicaia — naissance des « super-toscans ».\n1980s : Bolgheri devient la nouvelle frontière des cépages bordelais en Italie.\n1986 : premier millésime de Masseto, Merlot pur sur argile bleue.\nAujourd'hui : Bolgheri est l'une des appellations les plus convoitées d'Italie."
+      }
+    },
+    {
+      "id": 73,
+      "cepage_id": "riesling",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Granite des Vosges (Grand Cru Schlossberg)",
+      "region": "Alsace — Kaysersberg, Kientzheim",
+      "age": "Carbonifère — granite hercynien ~330 Ma",
+      "description": "L'Alsace est une mosaïque géologique unique née de l'effondrement du fossé rhénan : en quelques centaines de mètres, on passe du granite au calcaire, au grès ou au schiste. Sur le granite du Schlossberg, premier Grand Cru classé d'Alsace (1975), le Riesling donne des vins droits, ciselés, à la minéralité saline et au potentiel de garde immense.",
+      "structure": {
+        "a": 88,
+        "t": 0,
+        "c": 50,
+        "g": 88
+      },
+      "aromes": [
+        "Citron",
+        "Pêche blanche",
+        "Pierre à fusil",
+        "Tilleul",
+        "Pétrole (âge)"
+      ],
+      "key_point": "Le granite, pauvre et drainant, donne un Riesling tendu, vertical, salin. Sur calcaire il serait plus rond et floral : le même cépage traduit fidèlement chaque roche.",
+      "fiche": {
+        "geographie": "Le vignoble alsacien court sur les contreforts est des Vosges, abrité des pluies par la montagne (Colmar est l'une des villes les plus sèches de France). Exposition est/sud-est, altitude 200-400 m. Le Schlossberg est un coteau raide en terrasses, orienté plein sud, surplombant Kientzheim. La faille du fossé rhénan a juxtaposé des roches d'âges très différents.",
+        "geologie_detail": "Lecture verticale (Schlossberg) :\n▪ Surface : arène granitique (granite désagrégé, sableux)\n▪ Profondeur : granite à deux micas fissuré\n\nLe granite est pauvre en nutriments et très drainant : la vigne s'enracine profondément dans les fissures. Comparer avec les autres terroirs alsaciens : calcaire (rondeur, opulence — ex. Hengst), grès des Vosges (légèreté), marno-calcaire (puissance — ex. Rangen volcanique).",
+        "appellations": "▪ Alsace AOC → vin de cépage générique\n▪ Alsace Grand Cru → 51 lieux-dits délimités, dont Schlossberg (le premier, 1975)\n▪ Vendanges Tardives / Sélection de Grains Nobles → vins liquoreux\n\nSpécificité alsacienne : c'est l'une des rares régions françaises où le cépage figure sur l'étiquette.",
+        "evolution": "1-5 ans → Citron, pomme verte, fleurs blanches. Tension vive.\n5-12 ans → Pêche, miel léger, début de complexité minérale.\n12-25 ans → Note de pétrole (kérosène) caractéristique, agrumes confits.\n25 ans+ → Les grands Riesling de garde développent cire, truffe blanche et profondeur saline.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or pâle à reflets verts, jeune.\nNEZ : Citron + pierre à fusil jeune ; pétrole avec l'âge (signature absolue).\nBOUCHE : Sec, vif, salin, finale minérale longue. Aucune lourdeur.\nDISTINGUER : Riesling sur granite (salin, droit) vs sur calcaire (rond, floral) ; Moselle allemande → plus léger, souvent demi-sec.",
+        "histoire": "XVe s. : le Riesling est mentionné en Alsace.\n1871-1918 : annexion allemande — orientation vers les vins de masse.\n1945 : reconstruction qualitative après-guerre.\n1975 : création des Grands Crus, le Schlossberg est le premier classé.\n2011 : les Grands Crus deviennent des AOC à part entière, chacun avec son propre cahier des charges."
+      }
+    },
+    {
+      "id": 74,
+      "cepage_id": "riesling",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Ardoise bleue de la Moselle",
+      "region": "Mosel — Bernkastel, Wehlen (Allemagne)",
+      "age": "Dévonien — schistes ardoisiers ~400 Ma",
+      "description": "Sur les pentes vertigineuses de la Moselle (jusqu'à 65 % d'inclinaison, parmi les plus raides du monde viticole), le Riesling pousse sur l'ardoise bleue et grise du Dévonien. La roche sombre emmagasine la chaleur du jour et la restitue la nuit, permettant à la vigne de mûrir sous ce climat septentrional. Vins légers, cristallins, souvent demi-secs.",
+      "structure": {
+        "a": 92,
+        "t": 0,
+        "c": 42,
+        "g": 85
+      },
+      "aromes": [
+        "Citron vert",
+        "Pomme verte",
+        "Ardoise mouillée",
+        "Fleur blanche",
+        "Pamplemousse"
+      ],
+      "key_point": "L'ardoise sombre agit comme un radiateur : elle stocke la chaleur solaire et la rend la nuit, condition vitale pour mûrir le raisin si au nord. Elle donne aussi une minéralité « fumée » unique.",
+      "fiche": {
+        "geographie": "La Moselle serpente en méandres profonds entre Trèves et Coblence. Les vignobles occupent les versants intérieurs des méandres, exposés plein sud, parfois à 65° de pente. L'altitude est basse (100-200 m) mais la latitude élevée (50°N) fait de la chaleur réfléchie par la rivière et l'ardoise un facteur décisif. Récolte tardive (octobre-novembre).",
+        "geologie_detail": "Lecture verticale :\n▪ Surface : éboulis d'ardoise (plaques de schiste)\n▪ Profondeur : schiste ardoisier dévonien en place\n\nL'ardoise bleue (Wehlen, Bernkastel) donne des vins plus tendus ; l'ardoise rouge (Ürzig, riche en oxydes de fer) donne des vins plus épicés. Le sol noir capte la lumière et réchauffe les racines — sans cela, le Riesling ne mûrirait pas si au nord.",
+        "appellations": "Hiérarchie allemande basée sur la maturité du raisin :\n▪ Kabinett → léger, vif, souvent demi-sec\n▪ Spätlese → vendange tardive\n▪ Auslese → grains sélectionnés, plus riche\n▪ Beerenauslese / Trockenbeerenauslese → liquoreux d'exception\n\nGrands lieux-dits : Wehlener Sonnenuhr, Bernkasteler Doctor, Scharzhofberger (Sarre).",
+        "evolution": "1-5 ans → Citron vert, pomme, grande vivacité. Souvent un reste de sucre équilibré par l'acidité.\n5-12 ans → Miel léger, ardoise fumée, complexité.\n12-25 ans → Pétrole, cire, agrumes confits.\n25 ans+ → Les Auslese de grands millésimes vieillissent des décennies grâce à l'acidité.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or très pâle, presque translucide.\nNEZ : Citron vert + ardoise mouillée + fleur blanche.\nBOUCHE : Légèreté extrême (parfois 8-9°), tension acide, finale saline « fumée ».\nDISTINGUER : Moselle → plus léger, souvent demi-sec, plus bas en alcool ; Alsace → plus sec, plus corsé, plus alcoolisé.",
+        "histoire": "Époque romaine : les Romains plantent la vigne sur la Moselle (Trèves, capitale impériale).\nMoyen Âge : les monastères développent le vignoble en terrasses.\n1787 : le prince-évêque de Trèves ordonne de planter le Riesling.\nXIXe s. : les Riesling de la Moselle figurent parmi les vins les plus chers du monde, au niveau des premiers crus de Bordeaux.\nAujourd'hui : renaissance qualitative et reconnaissance mondiale des grands lieux-dits."
+      }
+    },
+    {
+      "id": 75,
+      "cepage_id": "gamay",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Granite rose et schiste bleu (Côte du Py)",
+      "region": "Beaujolais — Morgon, Moulin-à-Vent, Fleurie",
+      "age": "Carbonifère — granite et schistes ~340 Ma",
+      "description": "Le nord du Beaujolais repose sur un socle de granite rose et de schistes anciens, à l'opposé des sols calcaires du sud (Beaujolais générique). Sur la fameuse Côte du Py à Morgon, le Gamay plonge ses racines dans une roche volcanique altérée bleutée (« la roche pourrie ») riche en manganèse, qui donne des vins denses, structurés, capables de vieillir — on dit qu'ils « pinotent » avec l'âge.",
+      "structure": {
+        "a": 68,
+        "t": 38,
+        "c": 50,
+        "g": 60
+      },
+      "aromes": [
+        "Cerise noire",
+        "Pivoine",
+        "Kirsch",
+        "Granite",
+        "Sous-bois (âge)"
+      ],
+      "key_point": "Le granite drainant et pauvre concentre le Gamay et lui donne structure et garde — à l'opposé des sols argilo-calcaires du sud qui donnent le Beaujolais primeur léger.",
+      "fiche": {
+        "geographie": "Les dix crus du Beaujolais occupent les coteaux granitiques du nord de la région, entre Mâcon et Villefranche. Altitude 250-500 m, expositions est et sud-est. La Côte du Py, butte caractéristique de Morgon (350 m), est un ancien dôme volcanique. Plus au sud, les sols deviennent argilo-calcaires et donnent les Beaujolais et Beaujolais-Villages plus légers.",
+        "geologie_detail": "Lecture verticale (Côte du Py) :\n▪ Surface : arène granitique rose (« gore »), sableuse\n▪ Sous-sol : schistes et roches volcaniques altérées, bleutées, riches en manganèse et fer (« roche pourrie »)\n\nLe manganèse est la signature de Morgon. Comparer les crus : Moulin-à-Vent (granite + manganèse → garde) ; Fleurie (granite rose pur → finesse florale) ; Brouilly (diversité, plus souple).",
+        "appellations": "▪ Beaujolais → sud, argilo-calcaire, vins légers et primeurs\n▪ Beaujolais-Villages → transition\n▪ 10 Crus → sur granite, du nord au sud : Saint-Amour, Juliénas, Chénas, Moulin-à-Vent, Fleurie, Chiroubles, Morgon, Régnié, Brouilly, Côte de Brouilly\n\nMoulin-à-Vent et Morgon sont les crus de garde ; Chiroubles et Fleurie les plus délicats.",
+        "evolution": "1-3 ans → Cerise, framboise, pivoine. Fruité éclatant.\n3-8 ans → Le fruit se patine, notes de kirsch et d'épices.\n8-15 ans → Sur les grands crus granitiques, le Gamay « pinote » : sous-bois, gibier, évoquant un Bourgogne.\n15 ans+ → Réservé aux Moulin-à-Vent et Morgon de grands millésimes.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Rubis vif à pourpre, translucide.\nNEZ : Jeune → cerise + pivoine + banane (si macération carbonique) ; évolué → sous-bois, kirsch.\nBOUCHE : Fruité juteux, tanins fins, fraîcheur acidulée. Sur granite, plus de structure.\nDISTINGUER : Beaujolais primeur → bonbon, banane, léger ; Cru sur granite → structure, minéralité, potentiel de garde.",
+        "histoire": "1395 : Philippe le Hardi bannit le Gamay de Bourgogne au profit du Pinot Noir — le Gamay se réfugie dans le Beaujolais granitique.\nXIXe s. : la proximité de Lyon (« la troisième rivière de Lyon est le Beaujolais ») assure le débouché.\n1951 : naissance officielle du Beaujolais Nouveau.\n1980s-90s : apogée commercial du primeur, puis lassitude.\nAujourd'hui : renaissance des crus granitiques, redécouverts comme grands vins de terroir."
+      }
+    },
+    {
+      "id": 76,
+      "cepage_id": "gamay",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Coteaux alluviaux du Valais",
+      "region": "Valais — vallée du Rhône suisse",
+      "age": "Quaternaire — moraines et alluvions glaciaires",
+      "description": "Hors de France, le Gamay s'exprime surtout en Suisse, dans le Valais, où il couvre les coteaux ensoleillés de la haute vallée du Rhône. Sur des sols d'alluvions et de moraines glaciaires bien drainés, sous un climat alpin sec et lumineux, il donne des rouges fruités et digestes, souvent assemblés au Pinot Noir dans la cuvée traditionnelle « Dôle ».",
+      "structure": {
+        "a": 65,
+        "t": 35,
+        "c": 48,
+        "g": 50
+      },
+      "aromes": [
+        "Framboise",
+        "Cerise",
+        "Fleurs",
+        "Épices douces",
+        "Herbes alpines"
+      ],
+      "key_point": "Le climat alpin sec et l'ensoleillement intense compensent l'altitude : le Gamay valaisan mûrit bien et garde une belle fraîcheur sur ces sols morainiques drainants.",
+      "fiche": {
+        "geographie": "Le vignoble valaisan grimpe sur les versants sud de la vallée du Rhône, entre Martigny et Sierre, parfois jusqu'à 700-800 m d'altitude. C'est l'une des régions les plus sèches et ensoleillées de Suisse, protégée par les Alpes. Les coteaux raides sont souvent aménagés en terrasses soutenues par des murs de pierres sèches.",
+        "geologie_detail": "Lecture verticale :\n▪ Surface : alluvions et éboulis morainiques\n▪ Sous-sol : dépôts glaciaires variés (calcaire, schiste, gneiss selon les secteurs)\n\nLes moraines, laissées par le retrait des glaciers, offrent des sols caillouteux très drainants qui réchauffent vite et conviennent au Gamay. La diversité géologique du Valais permet une grande variété de cépages.",
+        "appellations": "▪ AOC Valais → cadre régional\n▪ Dôle → assemblage traditionnel Pinot Noir + Gamay (le Pinot doit dominer)\n▪ Goron → version plus simple\n\nLe Valais cultive plus de 50 cépages, dont des spécialités locales (Petite Arvine, Cornalin, Humagne).",
+        "evolution": "1-3 ans → Framboise, cerise, fleurs. À boire jeune et frais.\n3-6 ans → Le fruit s'arrondit, légères notes épicées.\n6 ans+ → Le Gamay valaisan est rarement de longue garde, sa force est la gourmandise immédiate.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Rubis clair et brillant.\nNEZ : Framboise + cerise + touche d'herbes alpines.\nBOUCHE : Léger, vif, digeste, tanins souples.\nDISTINGUER : Gamay valaisan → plus alpin, herbacé ; Beaujolais cru → plus minéral et structuré sur granite.",
+        "histoire": "Moyen Âge : la vigne valaisanne est développée par les évêques de Sion et les communautés alpines.\nXIXe-XXe s. : le Gamay, importé du Beaujolais voisin, s'implante largement.\n1959 : l'appellation Dôle est réglementée pour protéger l'assemblage Pinot-Gamay.\nAujourd'hui : le Valais est le plus grand vignoble de Suisse, et le Gamay y reste un cépage rouge majeur aux côtés du Pinot Noir."
+      }
+    },
+    {
+      "id": 77,
+      "cepage_id": "malbec",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Causse calcaire et terrasses du Lot",
+      "region": "Cahors — vallée du Lot, Sud-Ouest",
+      "age": "Jurassique (causse) et Quaternaire (terrasses)",
+      "description": "Berceau historique du Malbec (appelé ici Côt ou Auxerrois), Cahors produit le légendaire « vin noir ». Deux terroirs s'opposent : les terrasses alluviales du Lot (galets, graves), qui donnent des vins plus souples et fruités, et le causse calcaire en hauteur (plateau du Quercy), qui donne des vins plus austères, tanniques et minéraux, taillés pour une longue garde.",
+      "structure": {
+        "a": 58,
+        "t": 78,
+        "c": 80,
+        "g": 75
+      },
+      "aromes": [
+        "Mûre",
+        "Prune noire",
+        "Réglisse",
+        "Violette",
+        "Truffe (âge)"
+      ],
+      "key_point": "Le causse calcaire donne un Malbec austère et minéral de longue garde ; les terrasses de galets donnent un Malbec plus souple et fruité. Deux visages d'un même cépage selon l'altitude.",
+      "fiche": {
+        "geographie": "Le vignoble de Cahors suit les méandres du Lot, à l'ouest de la ville. Trois niveaux de terrasses alluviales étagent la vallée, des graviers de la rivière jusqu'aux hautes terrasses. Au-dessus s'étend le causse, plateau calcaire aride du Quercy (250-350 m), au climat plus continental. L'influence atlantique apporte humidité et fraîcheur.",
+        "geologie_detail": "Lecture verticale :\nTerrasses : galets, graves et sables alluviaux déposés par le Lot — sols drainants, réchauffants.\nCausse : calcaire jurassique dur, recouvert d'argiles rouges à silex (« terra rossa » locale) — sols pauvres, secs, contraignants.\n\nLe causse stresse la vigne et concentre tanins et minéralité ; les terrasses, plus fertiles, donnent plus de rondeur et de fruit.",
+        "appellations": "▪ Cahors AOC → minimum 70 % de Malbec (Côt), complété de Merlot et Tannat\n▪ Distinction non officielle mais réelle entre « vins de terrasses » (souples) et « vins de causse » (de garde)\n\nCahors fut l'une des premières régions à miser sur le nom du cépage (Malbec) pour reconquérir les marchés à l'export.",
+        "evolution": "1-5 ans → Mûre, prune, violette. Tanins fermes, couleur très dense (« vin noir »).\n5-12 ans → Réglisse, épices, cuir naissant. Les tanins se patinent.\n12-25 ans → Truffe, sous-bois, fondu — apogée des vins de causse.\n25 ans+ → Les grands millésimes de causse traversent les décennies.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Pourpre-noir opaque, très dense — le « vin noir ».\nNEZ : Mûre + prune noire + réglisse + violette.\nBOUCHE : Tanins puissants et terriens (causse) ou plus souples (terrasses). Finale minérale.\nDISTINGUER : Cahors → austère, terrien, frais ; Mendoza → velouté, solaire, fruité mûr.",
+        "histoire": "Antiquité : les Romains apprécient déjà le vin de Cahors.\nMoyen Âge : le « vin noir » de Cahors est exporté vers l'Angleterre et la Russie ; il sert même de vin de messe et de vin de mariage des tsars.\n1956 : le gel détruit le vignoble, qui manque de disparaître.\n1971 : Cahors obtient l'AOC et renaît autour du Malbec.\nAujourd'hui : Cahors revendique son statut de berceau mondial du Malbec face à l'Argentine."
+      }
+    },
+    {
+      "id": 78,
+      "cepage_id": "malbec",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Terroirs d'altitude de Mendoza (Uco Valley)",
+      "region": "Mendoza — Vallée de Uco, Argentine",
+      "age": "Quaternaire — alluvions andines",
+      "description": "C'est en Argentine que le Malbec est devenu une star mondiale. Au pied de la cordillère des Andes, dans la Vallée de Uco, les vignes grimpent de 900 à 1500 m d'altitude. L'air sec, l'ensoleillement intense et la grande amplitude thermique jour/nuit donnent des Malbec à la couleur profonde, au fruité mûr et velouté, tout en gardant fraîcheur et finesse en altitude.",
+      "structure": {
+        "a": 60,
+        "t": 70,
+        "c": 82,
+        "g": 72
+      },
+      "aromes": [
+        "Mûre",
+        "Myrtille",
+        "Violette",
+        "Cacao",
+        "Fleurs"
+      ],
+      "key_point": "L'altitude est la clé : plus on monte, plus les nuits sont fraîches, ce qui préserve l'acidité et les arômes floraux. Le Malbec d'altitude gagne en finesse ce qu'il perd en lourdeur.",
+      "fiche": {
+        "geographie": "La Vallée de Uco s'étend au sud de la ville de Mendoza, adossée à la cordillère des Andes. Les vignobles, parmi les plus hauts du monde, s'échelonnent de 900 à 1500 m (secteurs de Gualtallary, Altamira, La Consulta). Le climat est désertique : il pleut très peu, l'irrigation provient de la fonte des neiges andines. L'amplitude thermique entre le jour et la nuit peut dépasser 20 °C.",
+        "geologie_detail": "Lecture verticale :\n▪ Surface : sables et limons alluviaux\n▪ Profondeur : galets, graviers et poches de calcaire (notamment à Altamira et Gualtallary)\n\nLes sols sont d'origine alluviale, charriés par les rivières descendant des Andes. La présence de calcaire en altitude (rare en Argentine) donne aux meilleurs Malbec une tension minérale recherchée. Sols pauvres et très drainants.",
+        "appellations": "▪ IG (Indicación Geográfica) → système argentin de zonage\n▪ Valle de Uco → englobe Tupungato, Tunuyán, San Carlos\n▪ Sous-zones réputées : Gualtallary, Paraje Altamira (première IG officielle d'Argentine, 2013), La Consulta\n\nLe zonage par altitude et par sous-région est récent mais affine fortement la lecture des terroirs.",
+        "evolution": "1-5 ans → Mûre, myrtille, violette éclatantes. Tanins veloutés dès la jeunesse.\n5-10 ans → Cacao, épices, fondu.\n10-20 ans → Sur les meilleurs terroirs d'altitude, complexité de cuir et de truffe.\n20 ans+ → Les grands Malbec de Gualtallary commencent à prouver leur potentiel de garde.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Pourpre intense aux reflets violets.\nNEZ : Mûre + myrtille + violette + note florale d'altitude.\nBOUCHE : Velouté, charnu, fruité mûr, mais l'altitude apporte une fraîcheur finale.\nDISTINGUER : Mendoza → velouté solaire, floral ; Cahors → plus austère, terrien, minéral.",
+        "histoire": "1853 : l'agronome français Michel Pouget introduit le Malbec en Argentine, juste avant que le phylloxéra ne ravage l'Europe.\nXXe s. : le Malbec devient le cépage le plus planté d'Argentine, longtemps en vins de masse.\n1990s : la révolution qualitative, menée par des investisseurs et l'œnologue Michel Rolland, révèle le potentiel de l'altitude.\n2003 : le 17 avril devient le « Malbec World Day ».\nAujourd'hui : Mendoza est la capitale mondiale du Malbec."
+      }
+    },
+    {
+      "id": 79,
+      "cepage_id": "cinsault",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Schistes et calcaires de Provence",
+      "region": "Côtes de Provence — Var",
+      "age": "Primaire (schistes) et Secondaire (calcaire)",
+      "description": "Le Cinsault est le cépage roi du rosé de Provence. Sur les schistes cristallins des Maures et les calcaires de l'arrière-pays, il donne des vins pâles, frais et floraux. Sa faible coloration et ses tanins légers en font le complément idéal du Grenache et de la Syrah dans les assemblages rosés.",
+      "structure": {
+        "a": 62,
+        "t": 25,
+        "c": 35,
+        "g": 40
+      },
+      "aromes": [
+        "Fraise",
+        "Pamplemousse",
+        "Pêche",
+        "Rose",
+        "Garrigue"
+      ],
+      "key_point": "Peu coloré et peu tannique, le Cinsault apporte finesse, fraîcheur et arômes floraux : c'est lui qui donne au rosé de Provence sa délicatesse et sa couleur pâle.",
+      "fiche": {
+        "geographie": "La Provence viticole s'étend du massif des Maures à la vallée de la Durance. Climat méditerranéen chaud et sec, ensoleillement record (2 800 h/an), mistral asséchant qui limite les maladies. Les sols se partagent entre les schistes cristallins du littoral (Maures, Estérel) et les calcaires de l'intérieur.",
+        "geologie_detail": "Deux grands ensembles :\n▪ Schistes cristallins (Maures, Estérel) : sols acides, drainants, qui donnent des rosés vifs et minéraux\n▪ Calcaires et marnes (arrière-pays) : sols plus frais, qui apportent rondeur\n\nLe Cinsault, résistant à la sécheresse, s'adapte aux deux mais préfère les sols drainants où il garde sa fraîcheur.",
+        "appellations": "▪ Côtes de Provence → la plus vaste, dominée par le rosé\n▪ Coteaux d'Aix-en-Provence, Coteaux Varois → terroirs voisins\n▪ Bandol → l'exception rouge (Mourvèdre)\n\nLa Provence produit près de 90 % de rosé, premier vignoble rosé de France.",
+        "evolution": "Le rosé de Provence se boit jeune (1-2 ans) pour sa fraîcheur et son fruité. Le Cinsault n'est pas un cépage de garde : sa force est la buvabilité immédiate, la délicatesse aromatique et la fraîcheur.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Rosé très pâle, « pelure d'oignon » ou rose pétale.\nNEZ : Fraise + pamplemousse + note florale et de garrigue.\nBOUCHE : Léger, sec, vif, finale saline. Très peu de tanins.\nDISTINGUER : Rosé de Provence (Cinsault) → pâle et délicat ; rosé de Tavel (Grenache) → plus coloré et corsé.",
+        "histoire": "Le Cinsault est cultivé en Languedoc et Provence depuis des siècles. Longtemps cépage de rendement, il a été revalorisé avec l'essor mondial du rosé de Provence à partir des années 2000. C'est aussi l'un des parents du Pinotage sud-africain (croisé avec le Pinot Noir en 1925)."
+      }
+    },
+    {
+      "id": 80,
+      "cepage_id": "cinsault",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Granite et schiste du Swartland",
+      "region": "Swartland — Afrique du Sud",
+      "age": "Précambrien — granite et schiste anciens",
+      "description": "L'Afrique du Sud a une longue histoire avec le Cinsault (longtemps appelé « Hermitage » localement). Sur les sols de granite et de schiste du Swartland, de vieilles vignes non irriguées donnent des rouges légers et parfumés, redécouverts par une nouvelle génération de vignerons. C'est ici que le Cinsault fut croisé au Pinot Noir pour créer le Pinotage.",
+      "structure": {
+        "a": 60,
+        "t": 35,
+        "c": 45,
+        "g": 50
+      },
+      "aromes": [
+        "Cerise",
+        "Fraise des bois",
+        "Épices",
+        "Garrigue",
+        "Terre rouge"
+      ],
+      "key_point": "Les vieilles vignes de Cinsault non irriguées du Swartland, sur granite, donnent des rouges fins et digestes : la preuve que ce cépage 'de rendement' peut produire de grands vins quand on limite ses rendements.",
+      "fiche": {
+        "geographie": "Le Swartland (« terre noire ») s'étend au nord du Cap, région chaude et sèche balayée par les vents. Sols granitiques sur les collines, schisteux ailleurs. La viticulture y est souvent menée en sec (sans irrigation) sur de vieilles vignes en gobelet, ce qui concentre naturellement les raisins.",
+        "geologie_detail": "▪ Granite altéré (Paardeberg) : sols drainants, vins structurés et frais\n▪ Schiste (Riebeek) : minéralité\n\nLes vieilles vignes de Cinsault, parfois cinquantenaires, plongent profondément dans le granite et résistent à la sécheresse sans irrigation.",
+        "appellations": "▪ Swartland WO (Wine of Origin) → appellation sud-africaine\n▪ Mouvement « Swartland Revolution » → vignerons artisans depuis 2010\n\nLe Cinsault y est passé du statut de cépage de masse à celui de cépage patrimonial recherché.",
+        "evolution": "1-4 ans → Cerise, fraise, épices, grande fraîcheur. À boire jeune.\n4-8 ans → Légère évolution sur des notes de terre et d'épices.\nLe Cinsault sud-africain reste un vin de plaisir immédiat, mais les meilleurs vieux ceps gagnent en complexité.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Rubis clair, translucide.\nNEZ : Cerise + fraise des bois + épices douces.\nBOUCHE : Léger, frais, tanins fins, digeste.\nDISTINGUER : Cinsault sud-africain → plus de fruit et d'épices ; Cinsault de Provence → plutôt vinifié en rosé.",
+        "histoire": "Le Cinsault arrive en Afrique du Sud au XIXe siècle et devient l'un des cépages les plus plantés. En 1925, le professeur Perold le croise avec le Pinot Noir pour créer le Pinotage. Longtemps déprécié, le vieux Cinsault sud-africain connaît une renaissance spectaculaire depuis 2010 avec le mouvement des vignerons du Swartland."
+      }
+    },
+    {
+      "id": 81,
+      "cepage_id": "mourvedre",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Calcaire et restanques de Bandol",
+      "region": "Bandol — Provence côtière",
+      "age": "Secondaire — calcaire triasique et jurassique",
+      "description": "Bandol est le grand terroir du Mourvèdre en France. Sur les restanques (terrasses) calcaires face à la Méditerranée, ce cépage tardif et solaire donne des rouges puissants, tanniques et de longue garde, aux arômes de garrigue et de gibier. Le Mourvèdre y trouve la chaleur et l'ensoleillement qu'il exige pour mûrir.",
+      "structure": {
+        "a": 55,
+        "t": 80,
+        "c": 80,
+        "g": 82
+      },
+      "aromes": [
+        "Mûre",
+        "Poivre noir",
+        "Cuir",
+        "Garrigue",
+        "Gibier"
+      ],
+      "key_point": "Le Mourvèdre est si tardif qu'il n'atteint sa pleine maturité que sous le soleil et la chaleur réverbérée du calcaire de Bandol, face à la mer. Hors de ces conditions, il reste vert et dur.",
+      "fiche": {
+        "geographie": "Bandol forme un amphithéâtre de restanques (terrasses de pierres sèches) orientées vers la Méditerranée, entre Toulon et La Ciotat. Le climat est l'un des plus chauds et ensoleillés de France. La mer réfléchit la lumière et tempère les nuits. Les terrasses captent un maximum de chaleur — condition vitale pour mûrir le Mourvèdre.",
+        "geologie_detail": "Sols calcaires et marno-calcaires du Trias et du Jurassique, mêlés de grès et d'éboulis. Sols pauvres, drainants, qui obligent la vigne à s'enraciner profondément. La pierre calcaire emmagasine la chaleur du jour et la restitue la nuit, accélérant la maturité du cépage le plus tardif du Sud.",
+        "appellations": "▪ Bandol AOC → minimum 50 % de Mourvèdre pour le rouge (souvent 70-95 %)\n▪ Rouge de longue garde, mais aussi un rosé réputé\n\nBandol est l'une des rares appellations où le Mourvèdre est dominant ; ailleurs il est cépage d'assemblage.",
+        "evolution": "1-5 ans → Fermé, tannique, fruits noirs et poivre. Difficile jeune.\n5-12 ans → Ouverture sur le cuir, la garrigue, le gibier.\n12-25 ans → Apogée : truffe, sous-bois, fondu velouté.\n25 ans+ → Les grands Bandol traversent les décennies.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Grenat dense, profond.\nNEZ : Mûre + poivre + cuir + garrigue (thym, romarin).\nBOUCHE : Tanins puissants et fermes jeunes, finale sur le gibier et la réglisse.\nDISTINGUER : Bandol (Mourvèdre) → tannique, garrigue, gibier ; Châteauneuf (Grenade) → plus chaleureux et épicé.",
+        "histoire": "Le Mourvèdre (originaire d'Espagne, « Monastrell ») est cultivé à Bandol depuis l'Antiquité. Au XIXe siècle, les vins de Bandol s'exportent grâce au port. Après le phylloxéra, l'appellation se reconstruit autour du Mourvèdre, officialisée en AOC en 1941. Bandol est aujourd'hui la référence mondiale du cépage."
+      }
+    },
+    {
+      "id": 82,
+      "cepage_id": "mourvedre",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Calcaire aride de Jumilla",
+      "region": "Jumilla — Sud-Est de l'Espagne",
+      "age": "Secondaire — calcaire",
+      "description": "En Espagne, le Mourvèdre s'appelle Monastrell et règne sur le sud-est aride (Jumilla, Yecla). Sur des sols calcaires pauvres, sous un climat semi-désertique, de vieilles vignes en gobelet non greffées (la région a en partie échappé au phylloxéra) donnent des rouges puissants, chaleureux et concentrés.",
+      "structure": {
+        "a": 50,
+        "t": 78,
+        "c": 82,
+        "g": 75
+      },
+      "aromes": [
+        "Mûre",
+        "Prune",
+        "Réglisse",
+        "Thym",
+        "Cacao"
+      ],
+      "key_point": "Le Monastrell adore la chaleur et la sécheresse : à Jumilla, sous un climat semi-désertique, il donne des rouges denses et solaires, à l'opposé de la fraîcheur tannique de Bandol.",
+      "fiche": {
+        "geographie": "Jumilla se situe dans l'arrière-pays de Murcie et d'Alicante, sur un haut plateau (400-800 m) au climat continental semi-désertique : étés brûlants, hivers froids, très faibles précipitations. L'altitude apporte une amplitude thermique qui préserve un peu de fraîcheur.",
+        "geologie_detail": "Sols calcaires (« costras calizas ») recouverts de sables et de cailloux. Très pauvres et drainants. La vigne, souvent non irriguée et conduite en gobelet bas, plonge profondément pour chercher l'eau. Certaines parcelles sont franches de pied (non greffées), rareté mondiale due à la résistance des sols sableux au phylloxéra.",
+        "appellations": "▪ DO Jumilla, DO Yecla, DO Bullas → fiefs du Monastrell\n▪ Vins souvent dominés à 100 % par le cépage\n\nLongtemps vendu en vrac, le Monastrell de Jumilla connaît une montée en gamme qualitative depuis les années 2000.",
+        "evolution": "1-5 ans → Fruits noirs confits, réglisse, chaleur solaire. Tanins présents mais mûrs.\n5-12 ans → Cuir, épices, cacao.\nLes meilleurs Monastrell de vieilles vignes gagnent en complexité, mais le style reste solaire et généreux.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Pourpre dense, opaque.\nNEZ : Mûre confite + réglisse + thym + cacao.\nBOUCHE : Charnu, chaleureux, tanins mûrs, finale épicée.\nDISTINGUER : Jumilla (Monastrell) → solaire, confit, généreux ; Bandol (Mourvèdre) → plus frais, tannique et 'garrigue'.",
+        "histoire": "Le Monastrell est l'un des cépages les plus anciens d'Espagne. Jumilla fut un grand fournisseur de vins de coupage au XIXe siècle, en partie épargnée par le phylloxéra. Longtemps cantonnée au vrac, la région se modernise depuis les années 1990 et révèle le potentiel qualitatif de ses vieilles vignes de Monastrell."
+      }
+    },
+    {
+      "id": 83,
+      "cepage_id": "cabernet-franc",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Tuffeau et graviers de la Loire",
+      "region": "Chinon, Bourgueil — Touraine",
+      "age": "Crétacé (tuffeau) et Quaternaire (graviers)",
+      "description": "Le Cabernet Franc est le grand rouge de la Loire. Sur les graviers et sables des terrasses, il donne des vins légers, croquants et fruités à boire jeunes ; sur le tuffeau (craie locale) des coteaux, il donne des vins plus structurés et de garde. Sa fraîcheur et sa note de poivron en font un cépage très identifiable.",
+      "structure": {
+        "a": 65,
+        "t": 55,
+        "c": 55,
+        "g": 60
+      },
+      "aromes": [
+        "Framboise",
+        "Violette",
+        "Poivron",
+        "Mine de crayon",
+        "Cassis"
+      ],
+      "key_point": "Graviers = vins légers et fruités à boire jeunes ; tuffeau (craie) = vins structurés et de garde. La note de poivron signale une maturité juste et signe le Cabernet Franc à l'aveugle.",
+      "fiche": {
+        "geographie": "Le vignoble suit la Loire et ses affluents (Vienne, Indre) en Touraine. Climat de transition océanique-continental, plus frais que Bordeaux : le Cabernet Franc, plus précoce que le Cabernet Sauvignon, y mûrit là où ce dernier resterait vert. Les coteaux de tuffeau bordent la rivière, les terrasses de graviers occupent les vallées.",
+        "geologie_detail": "Deux terroirs :\n▪ Graviers et sables alluviaux (vallées) : sols drainants et réchauffants → vins souples, fruités, primeurs\n▪ Tuffeau (craie crayeuse du Crétacé, parfois creusée de caves) : sols frais retenant l'eau → vins structurés, minéraux, de garde\n\nLe tuffeau, roche tendre, sert aussi à bâtir les châteaux de la Loire et à creuser les caves troglodytes.",
+        "appellations": "▪ Chinon, Bourgueil, Saint-Nicolas-de-Bourgueil → fiefs du Cabernet Franc rouge\n▪ Saumur-Champigny → versant Anjou\n▪ Anjou, Touraine → appellations plus larges\n\nLe Cabernet Franc est ici appelé localement « Breton ».",
+        "evolution": "1-4 ans → Framboise, poivron, violette. Fruité croquant (graviers).\n4-10 ans → Le fruit se patine, notes de cuir et d'épices (tuffeau).\n10-20 ans → Sur les grands vins de tuffeau : sous-bois, truffe, fondu.\nLes vins de graviers se boivent jeunes, ceux de tuffeau vieillissent.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Rubis moyen, jamais opaque.\nNEZ : Framboise + violette + poivron (frais) + mine de crayon.\nBOUCHE : Fraîcheur marquée, tanins fins, finale élancée.\nDISTINGUER : Cabernet Franc (Loire) → léger, poivron, frais ; Cabernet Sauvignon (Médoc) → plus tannique, cassis, structure.",
+        "histoire": "Le Cabernet Franc est cultivé en Loire depuis le XIe siècle, diffusé notamment par l'abbaye de Bourgueil (d'où le surnom « Breton », du nom de l'abbé Breton). Parent du Cabernet Sauvignon (croisé avec le Sauvignon Blanc), il est l'un des cépages fondateurs du vignoble bordelais et ligérien."
+      }
+    },
+    {
+      "id": 84,
+      "cepage_id": "cabernet-franc",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Sols volcaniques et alluviaux de Napa",
+      "region": "Napa Valley — Californie",
+      "age": "Tertiaire (volcanique) et Quaternaire (alluvions)",
+      "description": "En Californie, le Cabernet Franc, longtemps cantonné aux assemblages bordelais, gagne en reconnaissance comme cépage à part entière. Sur les sols volcaniques des collines et alluviaux de la vallée de Napa, sous un climat chaud et ensoleillé, il donne des vins plus mûrs, charnus et fruités qu'en Loire, tout en gardant sa signature aromatique.",
+      "structure": {
+        "a": 55,
+        "t": 60,
+        "c": 65,
+        "g": 65
+      },
+      "aromes": [
+        "Cassis",
+        "Framboise mûre",
+        "Violette",
+        "Tabac",
+        "Épices"
+      ],
+      "key_point": "Sous le soleil californien, le Cabernet Franc perd son poivron végétal et gagne en fruit mûr et en rondeur : le climat efface la note herbacée typique des versions fraîches de la Loire.",
+      "fiche": {
+        "geographie": "La Napa Valley s'étire entre deux chaînes de collines, au nord de San Francisco. Le climat méditerranéen est tempéré au sud par les brouillards de la baie de San Pablo. Le Cabernet Franc occupe surtout les coteaux (Howell Mountain, Pritchard Hill) où l'altitude et les sols volcaniques apportent fraîcheur et structure.",
+        "geologie_detail": "Mosaïque de sols :\n▪ Sols volcaniques (collines de l'est) : rouges, ferrugineux, drainants → structure et minéralité\n▪ Alluvions et graviers (fond de vallée) : sols profonds → vins plus charnus\n\nNapa compte une diversité géologique exceptionnelle, héritage de son passé volcanique et de l'érosion des deux chaînes de collines.",
+        "appellations": "▪ Napa Valley AVA → appellation générale\n▪ Sous-AVA de collines : Howell Mountain, Mount Veeder, Pritchard Hill\n\nLe Cabernet Franc est souvent assemblé au Cabernet Sauvignon et au Merlot dans les « Meritage », mais des cuvées monocépages de prestige émergent.",
+        "evolution": "1-5 ans → Cassis, framboise mûre, fruit éclatant.\n5-12 ans → Tabac, épices, cuir.\n12-20 ans → Sur les meilleurs terroirs de collines, fondu et complexité.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Pourpre dense, plus soutenu qu'en Loire.\nNEZ : Cassis + framboise mûre + violette + tabac. Peu ou pas de poivron.\nBOUCHE : Charnu, tanins mûrs, finale chaleureuse.\nDISTINGUER : Napa → mûr, charnu, fruité ; Loire → léger, frais, herbacé (poivron).",
+        "histoire": "Le Cabernet Franc arrive en Californie avec les cépages bordelais au XIXe siècle. Longtemps utilisé en simple complément d'assemblage, il gagne ses lettres de noblesse comme cépage solo à partir des années 2000, porté par des vignerons cherchant à exprimer les terroirs de collines de Napa."
+      }
+    },
+    {
+      "id": 85,
+      "cepage_id": "viognier",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Granite et arzelle de Condrieu",
+      "region": "Condrieu — Rhône septentrional",
+      "age": "Carbonifère — granite et micaschistes",
+      "description": "Condrieu est le berceau et le sanctuaire du Viognier. Sur les terrasses granitiques vertigineuses dominant le Rhône, et sur l'« arzelle » (arène de mica schiste désagrégé), ce cépage rare donne des blancs opulents, gras et intensément parfumés d'abricot et de fleurs. Sauvé de l'extinction dans les années 1960, il est aujourd'hui mondialement imité.",
+      "structure": {
+        "a": 42,
+        "t": 0,
+        "c": 80,
+        "g": 50
+      },
+      "aromes": [
+        "Abricot",
+        "Pêche",
+        "Chèvrefeuille",
+        "Violette",
+        "Miel"
+      ],
+      "key_point": "Le granite pauvre et drainant des terrasses de Condrieu, combiné à un cépage capricieux et peu productif, donne un blanc rare, opulent et floral, sans équivalent.",
+      "fiche": {
+        "geographie": "Condrieu occupe des terrasses (« chaillées ») extrêmement raides sur la rive droite du Rhône, au sud de Lyon, en exposition sud/sud-est. La culture, entièrement manuelle, est héroïque. Le climat est continental tempéré par le fleuve. Les meilleures parcelles bénéficient d'un microclimat chaud abrité du vent du nord.",
+        "geologie_detail": "▪ Granite à deux micas, désagrégé en surface en « arzelle » (arène sableuse, mica schiste)\n▪ Sols pauvres, acides, très drainants\n\nL'arzelle se réchauffe vite et favorise la maturité du Viognier, cépage qui doit être récolté très mûr pour révéler ses arômes — d'où un alcool souvent élevé.",
+        "appellations": "▪ Condrieu AOC → Viognier sec, le grand classique\n▪ Château-Grillet AOC → enclave de 3,5 ha, l'une des plus petites AOC de France, monopole d'un seul domaine\n\nLe Viognier est aussi autorisé en faible proportion dans le rouge de Côte-Rôtie voisine, où il est co-fermenté avec la Syrah.",
+        "evolution": "Le Viognier de Condrieu se boit plutôt jeune (1-4 ans) pour capter son explosion aromatique d'abricot et de fleurs. Quelques grandes cuvées peuvent vieillir, mais le cépage perd vite sa fraîcheur : c'est un vin de jeunesse et d'opulence.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or soutenu, riche.\nNEZ : Abricot + pêche + chèvrefeuille + violette. Très expressif.\nBOUCHE : Gras, opulent, peu acide, finale sur le miel et les épices douces.\nDISTINGUER : Viognier → abricot et gras (peu d'acidité) ; Chardonnay → plus tendu et beurré ; Riesling → vif et minéral.",
+        "histoire": "Le Viognier serait arrivé dans le Rhône à l'époque romaine. Au milieu du XXe siècle, il a failli disparaître : il ne restait qu'une dizaine d'hectares à Condrieu dans les années 1960. Sa renaissance, portée par quelques vignerons passionnés, a précédé une diffusion mondiale spectaculaire à partir des années 1990."
+      }
+    },
+    {
+      "id": 86,
+      "cepage_id": "viognier",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Sols anciens d'Eden Valley",
+      "region": "Eden Valley — Australie-Méridionale",
+      "age": "Précambrien — sols très anciens altérés",
+      "description": "L'Australie est devenue une terre majeure du Viognier hors de France, notamment grâce au domaine Yalumba, pionnier mondial du cépage. En altitude à Eden Valley, sur des sols anciens et frais, le Viognier garde davantage de fraîcheur et de finesse qu'on ne l'attendrait sous le climat australien.",
+      "structure": {
+        "a": 48,
+        "t": 0,
+        "c": 72,
+        "g": 48
+      },
+      "aromes": [
+        "Abricot",
+        "Pêche jaune",
+        "Gingembre",
+        "Fleur d'oranger",
+        "Miel"
+      ],
+      "key_point": "L'altitude d'Eden Valley apporte la fraîcheur qui manque souvent au Viognier des climats chauds : le cépage y garde de la tension et évite la lourdeur.",
+      "fiche": {
+        "geographie": "Eden Valley est une région d'altitude (400-500 m) à l'est de la Barossa, en Australie-Méridionale. Plus fraîche et plus élevée que sa voisine, elle convient aux blancs aromatiques. Les nuits fraîches préservent l'acidité et les arômes, équilibrant la générosité naturelle du Viognier.",
+        "geologie_detail": "Sols anciens et altérés : sables, limons et argiles sur socle métamorphique parmi les plus vieux du monde. Pauvres et drainants, ils limitent la vigueur et concentrent les raisins. L'altitude et la fraîcheur nocturne sont ici plus déterminantes que la nature précise du sol.",
+        "appellations": "▪ Eden Valley GI (Geographical Indication) → région réputée pour Riesling et Viognier\n▪ Barossa voisine → versions plus solaires\n\nLe domaine Yalumba y a planté du Viognier dès les années 1980 et en est devenu l'ambassadeur mondial.",
+        "evolution": "1-4 ans → Abricot, pêche, fleurs, gingembre. Vin de jeunesse expressif.\n4-8 ans → Légère évolution sur le miel et les épices.\nComme à Condrieu, le Viognier australien se savoure surtout jeune pour son intensité aromatique.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or pâle à moyen.\nNEZ : Abricot + pêche jaune + gingembre + fleur d'oranger.\nBOUCHE : Rond et parfumé, mais l'altitude apporte plus de fraîcheur qu'un Viognier de climat chaud.\nDISTINGUER : Eden Valley → plus frais et tendu ; Condrieu → plus gras et opulent.",
+        "histoire": "Le Viognier arrive en Australie à la fin du XXe siècle. Le domaine Yalumba, en Eden Valley, devient un pionnier et un défenseur mondial du cépage, contribuant à sa diffusion. L'Australie est aujourd'hui l'un des plus grands producteurs de Viognier hors de France."
+      }
+    },
+    {
+      "id": 87,
+      "cepage_id": "muscat",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Safres et calcaire de Beaumes-de-Venise",
+      "region": "Beaumes-de-Venise — Vaucluse",
+      "age": "Tertiaire — safres (sables) et calcaire",
+      "description": "Au pied des Dentelles de Montmirail, Beaumes-de-Venise est le grand terroir du Muscat doux en France. Sur les « safres » (sables tertiaires) et les éboulis calcaires, le Muscat à petits grains donne un vin doux naturel (muté) intensément parfumé de raisin frais, de rose et d'agrumes confits.",
+      "structure": {
+        "a": 55,
+        "t": 0,
+        "c": 55,
+        "g": 40
+      },
+      "aromes": [
+        "Raisin frais",
+        "Rose",
+        "Litchi",
+        "Agrumes confits",
+        "Menthe"
+      ],
+      "key_point": "Le Muscat est le seul cépage dont le vin sent vraiment le raisin frais. À Beaumes-de-Venise, muté en vin doux naturel, il garde toute cette explosion aromatique.",
+      "fiche": {
+        "geographie": "Beaumes-de-Venise se niche au pied des Dentelles de Montmirail, reliefs calcaires déchiquetés du Vaucluse. Climat méditerranéen ensoleillé, mistral asséchant. Les vignes de Muscat occupent les pentes de safres et les terrasses caillouteuses, en exposition favorable.",
+        "geologie_detail": "▪ Safres : sables et grès tertiaires friables, qui se réchauffent vite\n▪ Éboulis calcaires (au pied des Dentelles) : drainage et minéralité\n▪ Terrasses de galets\n\nCes sols pauvres et drainants concentrent les sucres et les arômes du Muscat, essentiel pour un vin doux naturel.",
+        "appellations": "▪ Muscat de Beaumes-de-Venise AOC → vin doux naturel (VDN), muté à l'alcool\n▪ Beaumes-de-Venise AOC → pour les rouges (Grenache, Syrah)\n\nLe VDN est obtenu par « mutage » : on ajoute de l'alcool au moût en fermentation pour conserver le sucre naturel du raisin.",
+        "evolution": "1-5 ans → Raisin frais, rose, agrumes. Fraîcheur aromatique maximale, à boire jeune.\n5-10 ans → Les arômes évoluent vers les fruits confits, le coing, le miel.\nLe Muscat doux se déguste surtout jeune pour son fruité éclatant.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or à reflets dorés.\nNEZ : Raisin frais + rose + litchi + agrumes confits. Inimitable.\nBOUCHE : Doux mais frais, finale sur la menthe et les agrumes, jamais lourd.\nDISTINGUER : Le Muscat se reconnaît immédiatement à son arôme de raisin frais, unique parmi tous les cépages.",
+        "histoire": "Le Muscat à petits grains est l'un des plus anciens cépages cultivés, présent en Méditerranée depuis l'Antiquité grecque et romaine. Le Muscat de Beaumes-de-Venise est réputé depuis le Moyen Âge ; la papauté d'Avignon en raffolait. L'AOC vin doux naturel est reconnue en 1945."
+      }
+    },
+    {
+      "id": 88,
+      "cepage_id": "muscat",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Terrasses de schiste de Samos",
+      "region": "Île de Samos — Grèce",
+      "age": "Métamorphique — schistes et marbres",
+      "description": "L'île grecque de Samos, dans la mer Égée, est l'un des plus prestigieux terroirs mondiaux du Muscat à petits grains. Sur des terrasses de schiste accrochées aux pentes du mont Ámbelos, jusqu'à 800 m d'altitude, le Muscat donne des vins doux d'une grande finesse, héritiers d'une tradition viticole millénaire.",
+      "structure": {
+        "a": 58,
+        "t": 0,
+        "c": 55,
+        "g": 50
+      },
+      "aromes": [
+        "Raisin frais",
+        "Fleur d'oranger",
+        "Abricot",
+        "Miel",
+        "Herbes"
+      ],
+      "key_point": "Sur les terrasses d'altitude de Samos, la fraîcheur des nuits égéennes équilibre la douceur du Muscat : les vins doux y gagnent une finesse et une fraîcheur remarquables.",
+      "fiche": {
+        "geographie": "Samos est une île montagneuse de la mer Égée, proche de la côte turque. Le vignoble grimpe en terrasses sur les pentes raides du mont Ámbelos, de la mer jusqu'à 800 m. L'altitude apporte une amplitude thermique qui préserve la fraîcheur, tandis que l'ensoleillement méditerranéen assure la maturité et la concentration en sucre.",
+        "geologie_detail": "Sols de schistes et de marbres métamorphiques, pauvres et caillouteux, sur des terrasses soutenues par des murs de pierres sèches. Le drainage est total. L'étagement en altitude crée une mosaïque de microclimats : les parcelles hautes donnent des vins plus frais et fins, les basses des vins plus riches.",
+        "appellations": "▪ Samos PDO → appellation grecque dédiée au Muscat\n▪ Styles : Samos Vin Doux Naturel, Samos Grand Cru, Samos Nectar (passerillé, séché au soleil)\n\nLa coopérative de Samos (EOSS) gère l'essentiel de la production depuis 1934.",
+        "evolution": "1-5 ans → Raisin frais, fleur d'oranger, abricot. Fraîcheur et finesse.\n5-15 ans → Notes de miel, de fruits secs, de coing (surtout pour le Nectar passerillé).\nLes versions passerillées (Nectar) peuvent vieillir longuement.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or clair (VDN) à ambré (Nectar).\nNEZ : Raisin frais + fleur d'oranger + abricot + miel.\nBOUCHE : Doux et frais, grande finesse, finale sur les herbes et les agrumes.\nDISTINGUER : Samos → plus fin et frais (altitude) ; Beaumes-de-Venise → plus rond et solaire.",
+        "histoire": "La vigne est cultivée à Samos depuis l'Antiquité ; l'île était réputée pour ses vins dès l'époque grecque classique. Le Muscat doux de Samos a connu une grande notoriété au XIXe siècle, exporté dans toute l'Europe, notamment pour le vin de messe. La coopérative, fondée en 1934, en a préservé la tradition."
+      }
+    },
+    {
+      "id": 89,
+      "cepage_id": "pinot-gris",
+      "pays": "fr",
+      "sort_order": 0,
+      "nom": "Marno-calcaire d'Alsace",
+      "region": "Alsace — coteaux du Haut-Rhin",
+      "age": "Secondaire — marnes et calcaires",
+      "description": "En Alsace, le Pinot Gris donne sa version la plus riche et la plus opulente. Sur les sols marno-calcaires des coteaux, parfois sur les Grands Crus, il produit des blancs gras, épicés et puissants, secs ou moelleux selon la maturité. Sa peau gris-rosé donne parfois des vins légèrement cuivrés.",
+      "structure": {
+        "a": 55,
+        "t": 0,
+        "c": 72,
+        "g": 58
+      },
+      "aromes": [
+        "Poire",
+        "Coing",
+        "Fumée",
+        "Champignon",
+        "Miel"
+      ],
+      "key_point": "Sur le marno-calcaire alsacien, le Pinot Gris devient riche, gras et épicé — à l'opposé du Pinot Grigio italien, vif et léger. Le même cépage, deux philosophies.",
+      "fiche": {
+        "geographie": "Le Pinot Gris occupe les coteaux marno-calcaires d'Alsace, souvent sur les meilleures expositions sud/sud-est, parfois sur des Grands Crus. Comme tout le vignoble alsacien, il bénéficie de l'abri pluviométrique des Vosges, garantissant un ensoleillement et une sécheresse propices à une maturité élevée.",
+        "geologie_detail": "▪ Marnes et calcaires : sols frais et riches, qui donnent au Pinot Gris sa puissance et son gras\n▪ Parfois sols gréseux ou volcaniques sur certains Grands Crus\n\nLes sols marno-calcaires retiennent l'eau et nourrissent ce cépage capable d'atteindre de fortes maturités, jusqu'aux Vendanges Tardives.",
+        "appellations": "▪ Alsace AOC → Pinot Gris sec à demi-sec\n▪ Alsace Grand Cru → versions de prestige\n▪ Vendanges Tardives / Sélection de Grains Nobles → liquoreux\n\nLe Pinot Gris est l'un des quatre cépages « nobles » d'Alsace autorisés en Grand Cru, avec le Riesling, le Gewurztraminer et le Muscat.",
+        "evolution": "1-5 ans → Poire, coing, fumée. Richesse et gras.\n5-12 ans → Champignon, sous-bois, miel, notes torréfiées.\n12 ans+ → Les grands Pinot Gris et les liquoreux développent une complexité remarquable.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or soutenu, parfois reflets cuivrés.\nNEZ : Poire + coing + fumée + champignon.\nBOUCHE : Gras, ample, peu acide, finale épicée et fumée.\nDISTINGUER : Pinot Gris d'Alsace → riche et gras ; Pinot Grigio italien → vif et léger ; Pinot Gris d'Oregon → entre les deux.",
+        "histoire": "Le Pinot Gris, mutation grise du Pinot Noir, est cultivé en Alsace depuis des siècles, longtemps appelé « Tokay d'Alsace » (appellation abandonnée en 2007 sous la pression hongroise). Il fait partie des cépages nobles qui ont fondé la réputation des vins d'Alsace."
+      }
+    },
+    {
+      "id": 90,
+      "cepage_id": "pinot-gris",
+      "pays": "monde",
+      "sort_order": 0,
+      "nom": "Sols sédimentaires de Willamette",
+      "region": "Willamette Valley — Oregon",
+      "age": "Quaternaire — alluvions et lœss",
+      "description": "L'Oregon est devenu l'une des grandes terres du Pinot Gris hors d'Europe. Sous un climat frais et humide, sur les sols sédimentaires et volcaniques de la Willamette Valley, il donne un style intermédiaire : plus riche que le Grigio italien, plus vif que l'alsacien. Un blanc équilibré, fruité et gastronomique.",
+      "structure": {
+        "a": 62,
+        "t": 0,
+        "c": 60,
+        "g": 50
+      },
+      "aromes": [
+        "Poire",
+        "Pomme",
+        "Melon",
+        "Fleur blanche",
+        "Agrumes"
+      ],
+      "key_point": "Le climat frais de l'Oregon donne un Pinot Gris d'équilibre : ni la lourdeur possible de l'Alsace, ni la neutralité du Grigio industriel. Fruité, frais et gastronomique.",
+      "fiche": {
+        "geographie": "La Willamette Valley s'étend au sud de Portland, entre la chaîne côtière et les Cascades. Climat océanique frais et pluvieux, proche de celui de la Bourgogne. Si la région est célèbre pour le Pinot Noir, le Pinot Gris y est le blanc dominant, planté sur les coteaux et les terrasses bien drainées.",
+        "geologie_detail": "Trois grands types de sols :\n▪ Sols volcaniques (Jory, basalte altéré rouge) : drainants, structure\n▪ Sols sédimentaires marins (Willakenzie) : grès et siltstone\n▪ Lœss et alluvions glaciaires (Laurelwood, dépôts des crues de Missoula)\n\nCette diversité, combinée au climat frais, donne au Pinot Gris fraîcheur et équilibre.",
+        "appellations": "▪ Willamette Valley AVA → région-mère, avec de nombreuses sous-AVA\n▪ Le Pinot Gris est le cépage blanc n°1 de l'Oregon\n\nDes domaines comme King Estate ont fait de l'Oregon une référence mondiale pour ce cépage.",
+        "evolution": "1-4 ans → Poire, pomme, melon, fleurs. Fraîcheur fruitée.\n4-8 ans → Légère évolution sur les agrumes confits et les épices.\nLe Pinot Gris d'Oregon se savoure surtout jeune pour son équilibre fruité.",
+        "degustation": "Indices à l'aveugle :\nCOULEUR : Or pâle, parfois léger reflet cuivré.\nNEZ : Poire + pomme + melon + fleur blanche.\nBOUCHE : Équilibré, fruité, acidité fraîche, sans lourdeur.\nDISTINGUER : Oregon → fruité et équilibré ; Alsace → plus gras et épicé ; Grigio → plus neutre et vif.",
+        "histoire": "Le Pinot Gris est introduit en Oregon dans les années 1960 par David Lett (The Eyrie Vineyards), pionnier du vignoble de la Willamette. Le cépage s'y est imposé comme le grand blanc régional, l'Oregon revendiquant un style propre, distinct de l'Alsace et de l'Italie."
+      }
     }
   ],
   "terroirs": [],
@@ -3229,5 +3869,5 @@
       "description": "Comparer Oregon, Nouvelle-Zélande, Afrique du Sud, Allemagne face à la Bourgogne de référence."
     }
   ],
-  "_nextId": 71
+  "_nextId": 91
 }
