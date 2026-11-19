@@ -66,20 +66,9 @@ router.get('/data', async (req, res) => {
 
     const extras = getCepageExtras();
 
-    // Géologie : on part de data.json (référence complète = 90 sols),
-    // puis on remplace par la base pour les cépages qui y ont des sols
-    // (préserve les éventuelles éditions faites via l'admin).
+    // Géologie : servie UNIQUEMENT depuis data.json (référence complète = 90 sols).
+    // On n'utilise plus la base pour la géologie, afin d'éviter tout écrasement.
     const geo = JSON.parse(JSON.stringify(getGeoFromJSON()));
-    const cepsWithDbGeo = new Set(s.rows.map(r => r.cepage_id));
-    for (const cid of cepsWithDbGeo) geo[cid] = {fr:[],monde:[]};
-    for (const r of s.rows) {
-      if (!geo[r.cepage_id]) geo[r.cepage_id] = {fr:[],monde:[]};
-      const pays = r.pays === 'monde' ? 'monde' : 'fr';
-      geo[r.cepage_id][pays].push({
-        n:r.nom, r:r.region, a:r.age, d:r.description,
-        s:r.structure||{}, ar:r.aromes||[], k:r.key_point||'', fiche:r.fiche||{}
-      });
-    }
 
     // Cépages : DB + champs supplémentaires de data.json (dont rose)
     const cepages = c.rows.map(cep => ({
@@ -105,5 +94,5 @@ router.post('/data', (req, res) => {
   res.json({ ok: true, ignored: true });
 });
 
-router.get('/status',(req,res)=>res.json({ok:true,version:'5.3.0'}));
+router.get('/status',(req,res)=>res.json({ok:true,version:'5.4.0'}));
 module.exports = router;
